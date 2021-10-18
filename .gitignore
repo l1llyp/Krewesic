@@ -2,3 +2,4 @@ node_modules
 client/dist/bundles.js
 client/dist/bundles.js.map
 .env
+db/db.config.js

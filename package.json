@@ -4,7 +4,7 @@
   "description": "Thesis",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "true",
     "start": "nodemon server/index.js",
     "dev": "rimraf dist && cross-env NODE_ENV=development webpack"
   },
@@ -27,6 +27,7 @@
     "passport": "^0.5.0",
     "passport-google-oauth20": "^2.0.0",
     "path": "^0.12.7",
+    "pg": "^8.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^5.2.1",
