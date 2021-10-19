@@ -18,8 +18,8 @@ form.put('/:type', async (req, res) => {
 
 form.get('/user', async (req, res) => {
   try {
-    const {id} = req.user;
-    res.status(201).send(id)
+    const {id, name, picture, type} = req.user;
+    res.status(201).send({id, name, picture, type})
 
   } catch (err) {
     console.log('get err', err)
