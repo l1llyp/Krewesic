@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,17 +11,25 @@ import Profile from './Profile/Profile.jsx';
 import Form from './Profile/Form.jsx';
 import FormArtist from './Profile/FormArtist.jsx';
 import FormListener from './Profile/FormListener.jsx';
+import ArtistOfDay from './Home/ArtistOfDay.jsx';
+import GlobalContext from './Contexts/GlobalContext.jsx';
 
 
 const App = (props) =>  {
 
+  const [name, setName] = useState('')
+  const [picture, setPicture] = useState('')
+const value = {name, setName, picture, setPicture} 
+
     return (
-      <div>
+      <GlobalContext.Provider value={value}>
       <Router>
         <Switch>
           <Route exact path="/" component={Login}>
           </Route>
-         
+          <Route path='/artistofday' >
+            <ArtistOfDay />
+          </Route>
           <Route  path='/profile' >
             <Profile />
           </Route>
@@ -39,7 +47,7 @@ const App = (props) =>  {
           </Route>
         </Switch>
       </Router>
-    </div>
+    </GlobalContext.Provider>
     )
   
 }
