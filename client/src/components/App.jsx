@@ -9,6 +9,8 @@ import {
 import Login from './Login.jsx';
 import Profile from './Profile/Profile.jsx';
 import Form from './Profile/Form.jsx';
+import FormArtist from './Profile/FormArtist.jsx';
+import FormListener from './Profile/FormListener.jsx';
 
 
 const App = (props) =>  {
@@ -25,6 +27,12 @@ const App = (props) =>  {
           </Route>
           <Route path='/form' >
             <Form />
+          </Route>
+          <Route path='listenerform' >
+            <FormListener />
+          </Route>
+          <Route path='artistform' >
+            <FormArtist />
           </Route>
           <Route>
             <div>404 page not available</div>
