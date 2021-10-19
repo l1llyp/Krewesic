@@ -12,6 +12,16 @@ const User = db.define('User', {
     primaryKey: true,
     autoIncrement: true
   },
+  name: {
+    type: Sequelize.STRING
+  },
+  picture: {
+    type: Sequelize.STRING
+  },
+  email: {
+    type: Sequelize.STRING
+  }
+
 })
 
 User.sync() 
