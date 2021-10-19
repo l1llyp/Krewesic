@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Link
 } from "react-router-dom";
 
 
@@ -12,6 +13,7 @@ import Form from './Profile/Form.jsx';
 import FormArtist from './Profile/FormArtist.jsx';
 import FormListener from './Profile/FormListener.jsx';
 import ArtistOfDay from './Home/ArtistOfDay.jsx';
+import BandsHome from './Bands/BandsHome.jsx';
 import GlobalContext from './Contexts/GlobalContext.jsx';
 
 
@@ -24,6 +26,10 @@ const value = {name, setName, picture, setPicture}
     return (
       <GlobalContext.Provider value={value}>
       <Router>
+        <nav>
+          <Link to='/artistofday'>artist of day </Link>
+          <Link to='/bands'>bands</Link>
+        </nav>
         <Switch>
           <Route exact path="/" component={Login}>
           </Route>
@@ -41,6 +47,9 @@ const value = {name, setName, picture, setPicture}
           </Route>
           <Route path='/artistform' >
             <FormArtist />
+          </Route>
+          <Route path='/bands' >
+            <BandsHome />
           </Route>
           <Route>
             <div>404 page not available</div>
