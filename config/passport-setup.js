@@ -26,6 +26,7 @@ passport.use(
     User.findOne({ where: { googleId: profile.id } })
       .then(currentUser => {
         if (currentUser) {
+          
           //user already exists
           done(null, currentUser);
         } else {
