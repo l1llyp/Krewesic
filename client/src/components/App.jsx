@@ -28,10 +28,10 @@ const App = (props) =>  {
           <Route path='/form' >
             <Form />
           </Route>
-          <Route path='listenerform' >
+          <Route path='/listenerform' >
             <FormListener />
           </Route>
-          <Route path='artistform' >
+          <Route path='/artistform' >
             <FormArtist />
           </Route>
           <Route>
