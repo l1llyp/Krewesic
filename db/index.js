@@ -1,10 +1,12 @@
 const { Sequelize } = require('sequelize');
 const dbConfig = require('./db.config.js')
+const pg = require('pg');
 
-const db = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, { //????
+ const db = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, { 
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
 });
+
 
 const User = db.define('User', {
   id: {
@@ -18,7 +20,7 @@ const User = db.define('User', {
   picture: {
     type: Sequelize.STRING
   },
-  email: {
+  googleId: {
     type: Sequelize.STRING
   }
 

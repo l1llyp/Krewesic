@@ -11,11 +11,18 @@ const passportSetup = require('../config/passport-setup');
 const {User} = require('../db')
 const auth = require('./routes/authenticate')
 
+const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser')
+
+
 //create the server
 const server = http.createServer(app);
 
 app.use(express.static(frontEnd))
 app.use(express.json())
+app.use(cookieParser())
+app.use(bodyParser.urlencoded({extended: false}));
+
 
 app.use(session({
   secret: 'string',
