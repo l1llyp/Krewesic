@@ -9,7 +9,7 @@ auth.get('/google', passport.authenticate('google', {scope: ['profile', 'email']
 
 //callback redirect for google
 auth.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-  res.redirect('/drunk/');
+  res.redirect('/'); //we need to redirect somwhere else
   //res.redirect(`/${req.user.username}`);
 })
 
