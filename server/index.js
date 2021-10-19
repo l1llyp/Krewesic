@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express()
 const path = require('path')
-const PORT = 1337
+require('dotenv').config()
+const {PORT} = process.env
 const http = require('http');
 const frontEnd = path.resolve(__dirname, '..', 'client', 'dist')
 const session = require('express-session');
