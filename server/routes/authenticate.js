@@ -5,11 +5,18 @@ const passport = require('passport');
 
 auth.get('/google', passport.authenticate('google', {scope: ['profile', 'email']}) );
 
-auth.get('/google/redirect', 
-  passport.authenticate('google', {failureRedirect: '/login'}),
-  (req, res, next) => {
-    res.redirect('/') //redirect to the home/artist of day page
-  }
-)
 
-module.exports = {auth};
+
+//callback redirect for google
+auth.get('/google/redirect', passport.authenticate('google'), (req, res) => {
+  res.redirect('/drunk/');
+  //res.redirect(`/${req.user.username}`);
+})
+
+//auth logout
+auth.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
+});
+
+module.exports = auth;
