@@ -7,6 +7,8 @@ import {
 
 
 import Login from './Login.jsx';
+import Profile from './Profile/Profile.jsx';
+import Form from './Profile/Form.jsx';
 
 
 const App = (props) =>  {
@@ -16,6 +18,13 @@ const App = (props) =>  {
       <Router>
         <Switch>
           <Route exact path="/" component={Login}>
+          </Route>
+         
+          <Route  path='/profile' >
+            <Profile />
+          </Route>
+          <Route path='/form' >
+            <Form />
           </Route>
           <Route>
             <div>404 page not available</div>

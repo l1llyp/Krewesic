@@ -22,6 +22,10 @@ const User = db.define('User', {
   },
   googleId: {
     type: Sequelize.STRING
+  },
+  type: {
+    type: Sequelize.STRING,
+    defaultValue: null
   }
 
 })
