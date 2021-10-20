@@ -10,11 +10,11 @@
     clientSecret: 'your google client secret here
     }
    session: {
-     cookieKie: 'whatever string for a cookie key you choose here'
+     cookieKey: 'whatever string for a cookie key you choose here'
    }
   }
 
-  # .emv file
+  # .env file
   NODE_ENV=<development or production>
   PORT=<choose your port>
 
