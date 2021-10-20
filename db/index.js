@@ -1,6 +1,7 @@
-const { Sequelize } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 const dbConfig = require('./db.config.js');
 const pg = require('pg');
+const {dbUser} = require('./models/users.js');
 
 const db = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, { 
   host: dbConfig.HOST,
@@ -15,34 +16,14 @@ const db = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 // });
 
 
-const User = db.define('User', {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  name: {
-    type: Sequelize.STRING
-  },
-  picture: {
-    type: Sequelize.STRING
-  },
-  googleId: {
-    type: Sequelize.STRING
-  },
-  type: {
-    type: Sequelize.STRING,
-    defaultValue: null
-  }
+User = dbUser(db);
 
-});
 
-User.sync()
+//sync the db
+db.sync()
   .then(() => {
-    console.log('user synced');
+    console.log('db synced');
   })
   .catch((err) => console.error('err', err));
 
-module.exports = {
-  db,
-  User};
+module.exports = {db, User};
