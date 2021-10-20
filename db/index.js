@@ -7,6 +7,13 @@ const pg = require('pg');
   dialect: dbConfig.dialect,
 });
 
+//to use mysql, comment out hte previous db ^, and uncomment the below db.  
+
+// const db = new Sequelize('krewesic', 'root', '', {
+//   host: 'localhost',
+//   dialect: 'mysql',
+// });
+
 
 const User = db.define('User', {
   id: {
