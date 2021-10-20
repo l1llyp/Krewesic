@@ -39,6 +39,7 @@ const Header = (props) => {
     setName('')
     setType('')
     setLoggedIn(false)
+    //history pusch redirect to wherever should be redirected to
 
   }
   
