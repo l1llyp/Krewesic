@@ -16,7 +16,6 @@ const Form = (props) => {
   const history = useHistory();
 
   const ListenerButton = () => {
-
     return (
       <Button
         startIcon={<HeadsetIcon />}
@@ -28,9 +27,7 @@ const Form = (props) => {
         }} >Listener</Button>
     );
   };
-
   const ArtistButton = () => {
-
     return (
 
       <Button
@@ -59,12 +56,6 @@ const Form = (props) => {
           align='center'
           variant='h4'>Listener or Artist</Typography>
       </div>
-
-
-
-
-
-
       <Grid container spacing={3}>
         <Grid item xs>
           <ListenerButton />
@@ -73,12 +64,6 @@ const Form = (props) => {
           <ArtistButton />
         </Grid>
       </Grid>
-
-
-
-
-
-
     </div>
   );
 };
