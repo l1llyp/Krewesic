@@ -25,7 +25,7 @@ passport.use(
   }, (accessToken, refreshToken, profile, done) => {
     //console.log(profile)
 
-    console.log(User, 'UER!!!');
+    
 
 
     User.findOne({ where: { googleId: profile.id } })
