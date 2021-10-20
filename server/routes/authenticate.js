@@ -3,14 +3,25 @@ const auth = Router();
 const passport = require('passport');
 
 
+
 auth.get('/google', passport.authenticate('google', {scope: ['profile', 'email']}) );
 
 
 
 //callback redirect for google
 auth.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-  res.redirect('/'); //we need to redirect somwhere else
-  //res.redirect(`/${req.user.username}`);
+ // console.log(req.user)
+  //if the type is null: this redirects to the form
+  if(req.user.type !== null) { // //if the type is not null: redirect to the artistOfDay page
+    res.redirect('/artistofday')
+  }
+  else {
+    res.redirect('/form')
+  }
+ 
+
+  
+  
 })
 
 //auth logout

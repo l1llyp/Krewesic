@@ -1,15 +1,17 @@
 const express = require('express');
 const app = express()
 const path = require('path')
-const PORT = 1337
+require('dotenv').config()
+const {PORT} = process.env
 const http = require('http');
 const frontEnd = path.resolve(__dirname, '..', 'client', 'dist')
 const session = require('express-session');
 const passport = require('passport');
-require('./routes/authenticate');
+
 const passportSetup = require('../config/passport-setup');
 const {User} = require('../db')
 const auth = require('./routes/authenticate')
+const {form} = require('./routes/form.js')
 
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
@@ -33,6 +35,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/auth', auth)
+app.use('/form', form)
 
 
 app.get('*', (req, res) => {
