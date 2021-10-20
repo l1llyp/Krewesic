@@ -26,6 +26,7 @@ auth.get('/google/redirect', passport.authenticate('google'), (req, res) => {
 
 //auth logout
 auth.get('/logout', (req, res) => {
+  console.log('logout')
   req.logout();
   res.redirect('/');
 });
