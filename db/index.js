@@ -1,8 +1,8 @@
 const { Sequelize } = require('sequelize');
-const dbConfig = require('./db.config.js')
+const dbConfig = require('./db.config.js');
 const pg = require('pg');
 
- const db = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, { 
+const db = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, { 
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
 });
@@ -35,14 +35,14 @@ const User = db.define('User', {
     defaultValue: null
   }
 
-})
+});
 
 User.sync()
   .then(() => {
-    console.log('user synced')
+    console.log('user synced');
   })
   .catch((err) => console.error('err', err));
 
-  module.exports = {
-    db,
-    User}
+module.exports = {
+  db,
+  User};

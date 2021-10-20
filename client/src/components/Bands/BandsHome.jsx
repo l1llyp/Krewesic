@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const BandsHome = (props ) => {
   return (
     <div>
       bands home
     </div>
-  )
-}
+  );
+};
 
-export default BandsHome
+export default BandsHome;

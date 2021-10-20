@@ -9,21 +9,21 @@ const Profile = (props) => {
 
   
 
-  const {name, setName, picture, setPicture} = useContext(GlobalContext)
+  const {name, setName, picture, setPicture} = useContext(GlobalContext);
 
   useEffect(async()=>{
-    const {data} = await axios.get('/form/user')
-    console.log(data)
-    setName(data.name)
-    setPicture(data.picture)
-    console.log('picture', picture)
-  },[])
+    const {data} = await axios.get('/form/user');
+    console.log(data);
+    setName(data.name);
+    setPicture(data.picture);
+    console.log('picture', picture);
+  }, []);
 
   return (
     <div>
       profile component {name}
     </div>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

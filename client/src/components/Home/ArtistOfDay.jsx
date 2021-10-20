@@ -11,25 +11,25 @@ const StyledArtistOfDay = styled.div`
 
 const ArtistOfDay = (props) => {
 
-  const {name, setName, picture, setPicture, type, setType, loggedIn, setLoggedIn} = useContext(GlobalContext)
+  const {name, setName, picture, setPicture, type, setType, loggedIn, setLoggedIn} = useContext(GlobalContext);
 
   useEffect(async()=>{
-    const {data} = await axios.get('/form/user')
-    console.log(data)
-    setName(data.name)
-    setPicture(data.picture)
-    setType(data.type)
-    setLoggedIn(true)
-    console.log('picture', picture, 'type', type)
+    const {data} = await axios.get('/form/user');
+    console.log(data);
+    setName(data.name);
+    setPicture(data.picture);
+    setType(data.type);
+    setLoggedIn(true);
+    console.log('picture', picture, 'type', type);
 
-  },[])
+  }, []);
 
   return (
     <StyledArtistOfDay>
       this is the artist of the day and/or the home page??? {name} who is a type {type}
     
     </StyledArtistOfDay>
-  )
-}
+  );
+};
 
-export default ArtistOfDay
+export default ArtistOfDay;

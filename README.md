@@ -1,22 +1,18 @@
 # Krewesic
 
-# in config folder: create file called keys.js
-# here put google clientID and clientSecret that you get for oauth2
+
+
+  # .env 
+ #  here put google clientID and clientSecret that you get for oauth2
 # also you need session secret
 # #should be in this format: 
-  module.exports = {
-    google: {
-       clientId: 'your google client id here',
-    clientSecret: 'your google client secret here
-    }
-   session: {
-     cookieKey: 'whatever string for a cookie key you choose here'
-   }
-  }
-
-  # .env file
   NODE_ENV=<development or production>
   PORT=<choose your port>
+  GOOGLE_CLIENT_SECRET=yourgoogleclientsecrethere
+  GOOGLE_CLIENT_ID=yourgoogleclientid
+  SESSION_SECRET='whateversecretwordyouwantforsessions'
+
+
 
 
 # db config
