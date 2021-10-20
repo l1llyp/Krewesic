@@ -1,8 +1,9 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
-const keys = require('./keys');
+//const keys = require('./keys');
 const {User} = require('../db/index.js');
+require('dotenv').config();
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -12,14 +13,14 @@ passport.deserializeUser((id, done) => {
   User.findByPk(id)
     .then(user => {
       done(null, user);
-    })
-})
+    });
+});
 
 passport.use(
   new GoogleStrategy({
     //options for google strategy
-    clientID: keys.google.clientID,
-    clientSecret: keys.google.clientSecret,
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: '/auth/google/redirect'
   }, (accessToken, refreshToken, profile, done) => {
     //console.log(profile)
@@ -36,10 +37,10 @@ passport.use(
             googleId: profile.id,
             picture: null
           })
-          .then(newUser => {
-            done(null, newUser);
-          })
+            .then(newUser => {
+              done(null, newUser);
+            });
         }
-      })
+      });
   })
 );

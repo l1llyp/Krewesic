@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-function FormListener() {
+const FormListener = () => {
   return (
     <div>
       form listener
     </div>
-  )
-}
+  );
+};
 
-export default FormListener
+export default FormListener;

@@ -1,4 +1,4 @@
-const path =  require('path');
+const path = require('path');
 const { NODE_ENV = 'production' } = process.env;
 const isDev = NODE_ENV.includes('dev'); 
 

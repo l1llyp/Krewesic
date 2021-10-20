@@ -6,7 +6,8 @@
   "scripts": {
     "test": "true",
     "start": "nodemon server/index.js",
-    "dev": "rimraf dist && cross-env NODE_ENV=development webpack"
+    "dev": "rimraf dist && cross-env NODE_ENV=development webpack",
+    "lint": "eslint . --fix --ext .js,.jsx"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "husky": "^7.0.2",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.2",
     "passport": "^0.5.0",

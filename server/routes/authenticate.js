@@ -10,23 +10,22 @@ auth.get('/google', passport.authenticate('google', {scope: ['profile', 'email']
 
 //callback redirect for google
 auth.get('/google/redirect', passport.authenticate('google'), (req, res) => {
- // console.log(req.user)
+  // console.log(req.user)
   //if the type is null: this redirects to the form
-  if(req.user.type !== null) { // //if the type is not null: redirect to the artistOfDay page
-    res.redirect('/artistofday')
-  }
-  else {
-    res.redirect('/form')
+  if (req.user.type !== null) { // //if the type is not null: redirect to the artistOfDay page
+    res.redirect('/artistofday');
+  } else {
+    res.redirect('/form');
   }
  
 
   
   
-})
+});
 
 //auth logout
 auth.get('/logout', (req, res) => {
-  console.log('logout')
+  console.log('logout');
   req.logout();
   res.redirect('/');
 });
