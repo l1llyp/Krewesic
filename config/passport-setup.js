@@ -2,7 +2,7 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 //const keys = require('./keys');
-const {User} = require('../db/index.js');
+const {User} = require('../db');
 require('dotenv').config();
 
 passport.serializeUser((user, done) => {
@@ -24,6 +24,10 @@ passport.use(
     callbackURL: '/auth/google/redirect'
   }, (accessToken, refreshToken, profile, done) => {
     //console.log(profile)
+
+    console.log(User, 'UER!!!');
+
+
     User.findOne({ where: { googleId: profile.id } })
       .then(currentUser => {
         if (currentUser) {
