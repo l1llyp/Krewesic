@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {TextField, Button} from '@material-ui/core/';
 import axios from 'axios';
+//import './sample.json';
+
 
 const MapEvents = () => {
   
@@ -9,7 +11,9 @@ const MapEvents = () => {
   const search = async() => {
     console.log('click search');
     //send bandName to the back end
-    await axios.get('/events');
+    //const {data} = await axios.get(`/events/search/${bandName}`);
+    const {data} = await axios.get('/events/sampleData');
+    console.log(data);
 
     //clear the input text
   };
@@ -17,7 +21,7 @@ const MapEvents = () => {
   return (
     
     <div>
-      <TextField variant="outlined" placeholder='placeholder' onChange={(e)=>setBandName(e.target.value)} />
+      <TextField variant="outlined" placeholder='placeholder' onChange={(e)=>setBandName(e.target.value)} value={bandName} />
       <Button onClick={search}>search</Button>
       map events component
     </div>
