@@ -21,7 +21,8 @@ const App = (props) =>  {
 
   const [name, setName] = useState('')
   const [picture, setPicture] = useState('')
-const value = {name, setName, picture, setPicture} 
+  const [type, setType] = useState('')
+const value = {name, setName, picture, setPicture, type, setType} 
 
     return (
       <GlobalContext.Provider value={value}>
