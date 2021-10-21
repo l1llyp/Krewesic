@@ -54,8 +54,7 @@ const FormListener = () => {
         onChange={e => setArtist(e.target.value)}
         id="outlined-basic"
         label="Favorite Artist"
-        v
-        ariant="outlined" />
+        variant="outlined" />
       <br/>
       <br/>
       <FormControl fullWidth>
@@ -75,6 +74,13 @@ const FormListener = () => {
         </Select>
         <br/>
       </FormControl>
+      <TextField
+        onChange={e => setCity(e.target.value)}
+        //id="outlined-basic"
+        label="City"
+        variant="outlined" />
+      <br/>
+      <br/>
       <Button
         onClick={handleSubmit}
         href='/artistofday'
