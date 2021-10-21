@@ -9,19 +9,20 @@ const Profile = (props) => {
 
 
 
-  const {name, setName, picture, setPicture} = useContext(GlobalContext);
+  const {name, setName, picture, setPicture, type, setType} = useContext(GlobalContext);
 
   useEffect(async()=>{
     const {data} = await axios.get('/form/user');
     console.log(data);
     setName(data.name);
     setPicture(data.picture);
+    setType(data.type);
     console.log('picture', picture);
   }, []);
 
   return (
     <div>
-      profile component {name}
+      profile component {type}
     </div>
   );
 };

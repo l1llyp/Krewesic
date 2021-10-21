@@ -2,8 +2,8 @@ const {Router} = require('express');
 const events = Router();
 require('dotenv').config();
 const axios = require('axios');
-const sampleData = require('./sampleData/sample.json');
-const citySample = require('./sampleData/citySample.json');
+// const sampleData = require('./sampleData/sample.json');
+// const citySample = require('./sampleData/citySample.json');
 
 const fs = require('fs');
 
@@ -33,9 +33,9 @@ events.get('/bandSearch/:bandName', async (req, res) => {
 
 events.get('/citySearch/:city', async(req, res) => {
   try {
-    
+
     //const {city} = req.params;
-  
+
 
     const {data} = await axios.get(`${baseUri}/venues?client_id=${process.env.SEATGEEK_CLIENT_ID}&client_secret=${process.env.SEATGEEK_SECRET}&city=${city}`);
 

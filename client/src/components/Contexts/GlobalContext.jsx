@@ -2,7 +2,8 @@ import React from 'react';
 
 const GlobalContext = React.createContext({
   name: '',
-  type: ''
+  type: '',
+  bio: '',
 });
 
-export default GlobalContext; 
+export default GlobalContext;
