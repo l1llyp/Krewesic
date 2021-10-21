@@ -6,27 +6,27 @@ const {User, Messages} = require('../../../db/index.js');
 Message.post('/sendMessage', async (req, res) => {
   const { id } = req.user; //
   const { text } = req.body;
-try {
+  try {
 
-  Messages.create({ text: text, UserId: id});
-  res.sendStatus(200);
-} catch (err) {
- console.log(err);
- res.sendStatus(500);
-}
+    Messages.create({ text: text, UserId: id});
+    res.sendStatus(200);
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(500);
+  }
 });
 
 //get all messages from current user
 Message.get('/sendMessage', async (req, res) => {
   const {id} = req.user;
   try {
-    const messages = await Messages.findAll({where: { UserId: id }, include: [{model: User }]})
+    const messages = await Messages.findAll({where: { UserId: id }, include: [{model: User }]});
     res.status(200).send(messages);
-  } catch(err) {
+  } catch (err) {
     console.log(err);
     res.sendStatus(500);
 
   }
-})
+});
 
 module.exports = { Message };
