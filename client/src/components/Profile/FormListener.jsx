@@ -5,26 +5,35 @@ import {Button} from '@material-ui/core';
 import {TextField} from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Typography from '@material-ui/core/Typography';
-import {Menu} from '@mui/material';
 import { FormControl } from '@mui/material';
 import { InputLabel } from '@mui/material';
 import { Select } from '@mui/material';
 import {MenuItem} from '@material-ui/core';
-import {DropDownMenu} from '@material-ui/core';
+
 const FormListener = () => {
   const [ bio, setBio ] = useState('');
-  const [ favArtist, setArtist ] = useState('Type Artist');
-  const [ favGenre, setGenre ] = useState('Pick Genre!');
+  const [ favArtist, setArtist ] = useState('');
+  const [ favGenre, setGenre ] = useState('');
   const [ city, setCity ] = useState('');
+  const [data, setData] = useState(null);
 
-  const createListener = () => {
 
-    axios.put('/createListener', {
+  const handleSubmit = () => {
+    const data = {
       bio: bio,
       favArtist: favArtist,
-      favGenre: favGenre
-    })
-      .catch(err => console.log('darn', err));
+      favGenre: favGenre,
+      city: city
+    };
+    axios.put('/form/createListener', data).then(res => {
+      setData(res.data);
+      setBio('');
+      setArtist('');
+      setGenre('');
+      setCity('');
+    }).catch(err => {
+      console.log('darn', err);
+    });
   };
 
   return (
@@ -52,7 +61,6 @@ const FormListener = () => {
       <FormControl fullWidth>
         <InputLabel >Favorite Genre</InputLabel>
         <Select
-          defaultValue={ favGenre }
           onChange={e => setGenre(e.target.value)}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -75,8 +83,8 @@ const FormListener = () => {
       <br/>
       <br/>
       <Button
-        onClick={() => createListener()}
-        // href='/artistofday'
+        onClick={handleSubmit}
+        href='/artistofday'
         color="primary"
         variant="contained"
         startIcon={ <AccountCircle/> }

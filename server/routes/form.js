@@ -29,8 +29,8 @@ form.get('/user', async (req, res) => {
 
 form.put('/createListener', (req, res) => {
   const { bio, favGenre, favArtist, city } = req.body;
-  const id = 1;
-  //const {id} = req.user;
+  //const id = 1;
+  const {id} = req.user;
   User.findByPk(id)
     .then(user => {
       user.update({
@@ -52,8 +52,8 @@ form.put('/createListener', (req, res) => {
 
 form.put('/createArtist', (req, res) => {
   const { artistBio, myGenre, artistName, city } = req.body;
-  const id = 2;
-  //const {id} = req.user;
+  //const id = 2;
+  const {id} = req.user;
   User.findByPk(id)
     .then(user => {
       user.update({
