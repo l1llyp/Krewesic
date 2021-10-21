@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {TextField, Button} from '@material-ui/core/';
 import axios from 'axios';
-import Map from './Map.jsx'
+import Map from './Map.jsx';
 
 //import './sample.json';
 
@@ -29,7 +29,7 @@ const MapEvents = () => {
     //const {data} = await axios.get(`/events/citySearch/`${city});
 
     //right now hard coded to retreive sample data so not use api key too much
-    const {data} = await axios.get('/events/sampleCity')
+    const {data} = await axios.get('/events/sampleCity');
     console.log(data);
   };
   

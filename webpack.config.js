@@ -4,7 +4,9 @@ const isDev = NODE_ENV.includes('dev');
 
 module.exports = {
 
-  mode: isDev ? 'development' : 'production',
+  mode: isDev
+    ? 'development'
+    : 'production',
   entry: path.resolve(__dirname, 'client', 'src', 'index.jsx'),
   output: {
     filename: 'bundles.js',

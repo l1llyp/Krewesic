@@ -17,7 +17,7 @@ const FormListener = () => {
   const [ favGenre, setGenre ] = useState('Pick Genre!');
 
   const createListener = () => {
-    const [ bio, favArtist, favGenre ] = useState();
+    //const [ bio, favArtist, favGenre ] = useState();
     axios.put('/createListener', {
       bio: bio,
       favArtist: favArtist,

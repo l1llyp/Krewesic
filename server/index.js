@@ -10,9 +10,9 @@ const passport = require('passport');
 
 const passportSetup = require('../config/passport-setup');
 const {db} = require('../db');
-const auth = require('./routes/authenticate')
-const {form} = require('./routes/form.js')
-const events = require('./routes/events.js')
+const auth = require('./routes/authenticate');
+const {form} = require('./routes/form.js');
+const events = require('./routes/events.js');
 
 //const graphql = require('graphql');
 //const { graphqlHTTP } = require('express-graphql');
@@ -22,7 +22,7 @@ const events = require('./routes/events.js')
 //create the server
 const server = http.createServer(app);
 
-app.use(express.static(frontEnd))
+app.use(express.static(frontEnd));
 app.use(express.json());
 
 
