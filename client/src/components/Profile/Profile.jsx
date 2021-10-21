@@ -7,7 +7,7 @@ import 'regenerator-runtime/runtime';
 
 const Profile = (props) => {
 
-  
+
 
   const {name, setName, picture, setPicture} = useContext(GlobalContext);
 
