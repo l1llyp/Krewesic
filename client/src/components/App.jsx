@@ -68,12 +68,10 @@ const App = (props) => {
               <MapEvents />
             </Route>
             <Route path='/messages' component={MessagesPage}>
-
             </Route>
             <Route>
               <div>404 page not available</div>
             </Route>
-
           </Switch>
         </Router>
       </GlobalContext.Provider>
