@@ -9,6 +9,8 @@ const session = require('express-session');
 const passport = require('passport');
 
 const passportSetup = require('../config/passport-setup');
+
+const {Message} = require('./routes/message/messages.js');
 const {db} = require('../db');
 const auth = require('./routes/authenticate');
 const {form} = require('./routes/form.js');
@@ -34,9 +36,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/auth', auth);
-app.use('/form', form);
-
+app.use('/auth', auth)
+app.use('/form', form)
+app.use('/messages', Message);
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(frontEnd, 'index.html'));

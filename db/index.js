@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 const dbConfig = require('./db.config.js');
 const pg = require('pg');
 const {dbUser} = require('./models/users.js');
-
+const { dbMessages } = require('./models/messages.js');
 const db = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, { 
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
@@ -17,7 +17,10 @@ const db = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 
 
 User = dbUser(db);
+Messages = dbMessages(db);
 
+User.hasMany(Messages);
+Messages.belongsTo(User);
 
 //sync the db
 db.sync()
@@ -26,4 +29,6 @@ db.sync()
   })
   .catch((err) => console.error('err', err));
 
-module.exports = {db, User};
+  module.exports = {
+    db,
+    User, Messages}
