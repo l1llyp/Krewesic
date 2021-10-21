@@ -22,7 +22,7 @@ const events = require('./routes/events.js')
 //create the server
 const server = http.createServer(app);
 
-app.use(express.static(frontEnd));
+app.use(express.static(frontEnd))
 app.use(express.json());
 
 
