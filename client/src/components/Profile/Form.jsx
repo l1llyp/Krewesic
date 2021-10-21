@@ -45,7 +45,7 @@ const Form = (props) => {
   };
 
   const selectType = (type) => {
-    axios.put(`/form/${type}`);
+    axios.put(`/form/setType/${type}`);
   };
   return (
     <div>
