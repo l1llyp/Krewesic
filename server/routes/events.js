@@ -69,11 +69,11 @@ events.get('/sampleData', async(req, res) => {
 
 events.get('/sampleCity', async(req, res) => {
   try {
-    res.status(201).json(citySample);
+    res.status(201).json(citySample);//
 
   } catch (err) {
     console.log(err);
-    res.sendSt atus(500);
+    res.sendStatus(500);
   }
 });
 
