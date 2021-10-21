@@ -22,10 +22,16 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run pretest",
+      "pre-commit": "lint-staged",
       "pre-push": "npm run lint:fix && npm run lint"
     }
   },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  }
   "homepage": "https://github.com/The-Headliners/Krewesic#readme",
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.15.8",
