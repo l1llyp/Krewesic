@@ -13,7 +13,6 @@ const Map = ( props) => {
 
   const center = { lat: 30.0, lng: -90.0 }; //coordinates to center map
 
-  const 
 
 
 
