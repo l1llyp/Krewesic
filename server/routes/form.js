@@ -40,7 +40,7 @@ form.put('/createListener', (req, res) => {
         favArtist: favArtist
       })
         .then(() => {
-          console.log('hello');
+          console.log('hello')
           res.sendStatus(201);
         });
     })
