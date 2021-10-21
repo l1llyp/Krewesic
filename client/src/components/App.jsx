@@ -17,7 +17,7 @@ import BandsHome from './Bands/BandsHome.jsx';
 import MapEvents from './Events/MapEvents.jsx';
 import Header from './Header.jsx';
 import GlobalContext from './Contexts/GlobalContext.jsx';
-import MessageForm from './Messages/MessageForm.jsx';
+import MessagesPage from './Messages/MessagesPage.jsx';
 
 const AppStyles = styled.div`
   margin: 50px;
@@ -67,7 +67,7 @@ const App = (props) => {
           <Route path='/mapevents' >
             <MapEvents />
           </Route>
-          <Route path='/messages' component={MessageForm}>
+          <Route path='/messages' component={MessagesPage}>
            
           </Route>
           <Route>
