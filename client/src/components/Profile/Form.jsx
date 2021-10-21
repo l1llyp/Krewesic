@@ -5,82 +5,67 @@ import FormListener from './FormListener.jsx';
 import FormArtist from './FormArtist.jsx';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import Button from '@material-ui/core/Button'
-import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 // import Item from '@material-ui/core/Item'
 import HeadsetIcon from '@material-ui/icons/Headset';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
-import Typography from '@material-ui/core/Typography'
+import Typography from '@material-ui/core/Typography';
 const Form = (props) => {
   //get user info
   const history = useHistory();
 
- function ListenerButton() {
+  const ListenerButton = () => {
+    return (
+      <Button
+        startIcon={<HeadsetIcon />}
+        color='primary'
+        variant='contained'
+        onClick={() => {
+          selectType('listener');
+          history.push('/listenerform');
+        }} >Listener</Button>
+    );
+  };
+  const ArtistButton = () => {
+    return (
 
-  return (
-    <Button
-    startIcon={<HeadsetIcon />}
-    color='primary'
-    variant='contained'
-    onClick={() => {
-      selectType('listener')
-      history.push(`/listenerform`)
-    }} >Listener</Button>
-  )
- }
-
- function ArtistButton() {
-
-  return (
-
-        <Button
-    startIcon={<MusicNoteIcon />}
-    color='primary'
-    variant='contained'
-    align='right'
-    onClick={() => {
-      selectType('artist')
-      history.push(`/artistform`)
-    }} >Artist</Button>
+      <Button
+        startIcon={<MusicNoteIcon />}
+        color='primary'
+        variant='contained'
+        align='right'
+        onClick={() => {
+          selectType('artist');
+          history.push('/artistform');
+        }} >Artist</Button>
 
 
-  )
- }
+    );
+  };
 
   const selectType = (type) => {
-    axios.put(`/form/${type}`)
-  }
+    axios.put(`/form/${type}`);
+  };
   return (
     <div>
 
       <div>
-      <Typography
-      color='secondary'
-      align='center'
-      variant='h4'>Listener or Artist</Typography>
+        <Typography
+          color='secondary'
+          align='center'
+          variant='h4'>Listener or Artist</Typography>
       </div>
-
-
-
-
-
-
       <Grid container spacing={3}>
-  <Grid item xs>
-    <ListenerButton />
-  </Grid>
-  <Grid item xs={14}>
-    <ArtistButton />
-  </Grid>
-</Grid>
-
-
-
-
-
-
+        <Grid item xs>
+          <ListenerButton />
+        </Grid>
+        <Grid item xs={14}>
+          <ArtistButton />
+        </Grid>
+      </Grid>
     </div>
-  )
-}
+  );
+};
 
-export default Form
+export default Form;

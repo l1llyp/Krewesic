@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-function FormArtist() {
+const FormArtist = () => {
   return (
     <div>
       form for artist
       
     </div>
-  )
-}
+  );
+};
 
-export default FormArtist
+export default FormArtist;
