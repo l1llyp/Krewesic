@@ -17,7 +17,7 @@ import BandsHome from './Bands/BandsHome.jsx';
 import MapEvents from './Events/MapEvents.jsx';
 import Header from './Header.jsx'
 import GlobalContext from './Contexts/GlobalContext.jsx';
-
+import MessageForm from './Messages/MessageForm.jsx';
 
 const AppStyles = styled.div`
   margin: 50px;
@@ -40,6 +40,7 @@ const value = {name, setName, picture, setPicture, type, setType, loggedIn, setL
           <Link to='/artistofday'>artist of day </Link>
           <Link to='/bands'>bands</Link>
           <Link to='/mapevents'>map events</Link>
+          <Link to='/messages'>Messages</Link>
         </nav>
         
         <Switch>
@@ -66,9 +67,13 @@ const value = {name, setName, picture, setPicture, type, setType, loggedIn, setL
           <Route path='/mapevents' >
             <MapEvents />
           </Route>
+          <Route path='/messages' component={MessageForm}>
+           
+          </Route>
           <Route>
             <div>404 page not available</div>
           </Route>
+          
         </Switch>
       </Router>
     </GlobalContext.Provider>

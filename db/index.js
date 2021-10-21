@@ -2,17 +2,17 @@ const { Sequelize } = require('sequelize');
 const dbConfig = require('./db.config.js')
 const pg = require('pg');
 
-//  const db = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, { 
-//   host: dbConfig.HOST,
-//   dialect: dbConfig.dialect,
-// });
+ const db = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, { 
+  host: dbConfig.HOST,
+  dialect: dbConfig.dialect,
+});
 
 //to use mysql, comment out hte previous db ^, and uncomment the below db.  
 
-const db = new Sequelize('krewesic', 'root', '', {
-  host: 'localhost',
-  dialect: 'mysql',
-});
+// const db = new Sequelize('krewesic', 'root', '', {
+//   host: 'localhost',
+//   dialect: 'mysql',
+// });
 
 
 const User = db.define('User', {
@@ -37,12 +37,32 @@ const User = db.define('User', {
 
 })
 
+const Messages = db.define('Messages', {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  text: {
+    type: Sequelize.STRING
+  }
+})
+
+User.hasMany(Messages);
+Messages.belongsTo(User);
+
 User.sync()
   .then(() => {
     console.log('user synced')
   })
   .catch((err) => console.error('err', err));
 
+  Messages.sync()
+  .then(() => {
+    console.log('messages synced')
+  })
+  .catch((err) => console.error('err', err));
+
   module.exports = {
     db,
-    User}
+    User, Messages}

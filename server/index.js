@@ -12,7 +12,7 @@ const passportSetup = require('../config/passport-setup');
 const {User} = require('../db')
 const auth = require('./routes/authenticate')
 const {form} = require('./routes/form.js')
-
+const {Message} = require('./routes/message/messages.js');
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 
@@ -36,7 +36,7 @@ app.use(passport.session());
 
 app.use('/auth', auth)
 app.use('/form', form)
-
+app.use('/messages', Message);
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(frontEnd, 'index.html'));
