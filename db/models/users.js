@@ -32,6 +32,22 @@ const dbUser = (sequelize, DataTypes) => {
       type: Sequelize.STRING,
       defaultValue: null
     },
+    artistBio: {
+      type: Sequelize.STRING,
+      defaultValue: null
+    },
+    artistName: {
+      type: Sequelize.STRING,
+      defaultValue: null
+    },
+    myGenre: {
+      type: Sequelize.STRING,
+      defaultValue: null
+    },
+    city: {
+      type: Sequelize.STRING,
+      defaultValue: null
+    },
   });
 };
 

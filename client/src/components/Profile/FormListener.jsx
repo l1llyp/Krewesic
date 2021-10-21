@@ -15,9 +15,10 @@ const FormListener = () => {
   const [ bio, setBio ] = useState('');
   const [ favArtist, setArtist ] = useState('Type Artist');
   const [ favGenre, setGenre ] = useState('Pick Genre!');
+  const [ city, setCity ] = useState('');
 
   const createListener = () => {
-    const [ bio, favArtist, favGenre ] = useState();
+
     axios.put('/createListener', {
       bio: bio,
       favArtist: favArtist,
@@ -28,6 +29,7 @@ const FormListener = () => {
 
   return (
     <div>
+      <br/>
       <Typography
         align='center'
         color='secondary'
@@ -44,8 +46,7 @@ const FormListener = () => {
         onChange={e => setArtist(e.target.value)}
         id="outlined-basic"
         label="Favorite Artist"
-        v
-        ariant="outlined" />
+        variant="outlined" />
       <br/>
       <br/>
       <FormControl fullWidth>
@@ -66,6 +67,13 @@ const FormListener = () => {
         </Select>
         <br/>
       </FormControl>
+      <TextField
+        onChange={e => setCity(e.target.value)}
+        id="outlined-basic"
+        label="My City"
+        variant="outlined" />
+      <br/>
+      <br/>
       <Button
         onClick={() => createListener()}
         // href='/artistofday'
@@ -74,7 +82,6 @@ const FormListener = () => {
         startIcon={ <AccountCircle/> }
       > Create Profile </Button>
       <br/><br/>
-
     </div>
   );
 };
