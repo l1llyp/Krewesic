@@ -9,50 +9,50 @@ const MessageForm = () => {
 
   const sendMessage = (event) => {
     event.preventDefault();
-//where we need to send an axios post to create the message in the Messages db
- axios.post('/messages/sendMessage', { text: value })
- .then((results) => {
-   console.log('messageCreated:', results);
-   setValue('');
- })
- .catch(err => {
-   console.log('ERROR:', err);
- })
+    //where we need to send an axios post to create the message in the Messages db
+    axios.post('/messages/sendMessage', { text: value })
+      .then((results) => {
+        console.log('messageCreated:', results);
+        setValue('');
+      })
+      .catch(err => {
+        console.log('ERROR:', err);
+      });
     
-  }
+  };
   // const handleSubmit = (event) => {
   //    event.preventDefault();
   // }
 
   const handleChange = (event) => {
-     setValue(event.target.value);
-  }
+    setValue(event.target.value);
+  };
 
-//   //**Get all messages from current User*/
-//  const getMessages = () => {
-//    axios.get('/messages/sendMessage')
-//    .then( (results) => {
-//      setMessages(results.data)
-//    console.log('Messages:', results.data);
-//    })
-//    .catch( err => {
-//      console.log('ERROR!:', err);
-//    })
-//  }
+  //   //**Get all messages from current User*/
+  //  const getMessages = () => {
+  //    axios.get('/messages/sendMessage')
+  //    .then( (results) => {
+  //      setMessages(results.data)
+  //    console.log('Messages:', results.data);
+  //    })
+  //    .catch( err => {
+  //      console.log('ERROR!:', err);
+  //    })
+  //  }
 
- useEffect(() => {
-   //getMessages();
- }, []);
+  useEffect(() => {
+    //getMessages();
+  }, []);
 
-return (
+  return (
  
-  <form className="message-form" >
-    <input className="message-input" placeholder="Send a message..." value={value} onChange={handleChange}  />
+    <form className="message-form" >
+      <input className="message-input" placeholder="Send a message..." value={value} onChange={handleChange} />
 
- <button className="message-button" onClick={sendMessage}> send </button>
-  </form>
+      <button className="message-button" onClick={sendMessage}> send </button>
+    </form>
 
-)
-}
+  );
+};
 
 export default MessageForm;
