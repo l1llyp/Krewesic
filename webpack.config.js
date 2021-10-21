@@ -20,7 +20,8 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: ['@babel/transform-runtime']
           }
         }
       },
@@ -30,7 +31,13 @@ module.exports = {
           loader: 'url-loader?limit=8192'
         }
         
-      }
+      },
+      {
+        test: /\.(jpg|png|jpeg)$/,
+        use: {
+          loader: 'url-loader',
+        },
+      },
     ]
   }
 

@@ -12,9 +12,11 @@ const passportSetup = require('../config/passport-setup');
 const {db} = require('../db');
 const auth = require('./routes/authenticate');
 const {form} = require('./routes/form.js');
+const events = require('./routes/events.js');
 
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
+//const graphql = require('graphql');
+//const { graphqlHTTP } = require('express-graphql');
+
 
 
 //create the server
@@ -22,8 +24,8 @@ const server = http.createServer(app);
 
 app.use(express.static(frontEnd));
 app.use(express.json());
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({extended: false}));
+
+
 
 
 app.use(session({
@@ -36,6 +38,9 @@ app.use(passport.session());
 
 app.use('/auth', auth);
 app.use('/form', form);
+app.use('/events', events);
+
+
 
 
 app.get('*', (req, res) => {

@@ -1,9 +1,24 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import {TextField, Button} from '@material-ui/core/';
+import axios from 'axios';
 
 const MapEvents = () => {
+  
+  const [bandName, setBandName] = useState('');
+
+  const search = async() => {
+    console.log('click search');
+    //send bandName to the back end
+    await axios.get('/events');
+
+    //clear the input text
+  };
+  
   return (
     
     <div>
+      <TextField variant="outlined" placeholder='placeholder' onChange={(e)=>setBandName(e.target.value)} />
+      <Button onClick={search}>search</Button>
       map events component
     </div>
   );
