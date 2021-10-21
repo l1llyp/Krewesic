@@ -24,6 +24,5 @@ db.sync()
   .then(() => {
     console.log('db synced');
   })
-  .catch((err) => console.error('err', err));
-
+  .catch((err) => console.error('err', err))
 module.exports = {db, User};
