@@ -1,4 +1,3 @@
-
 import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import {Button} from '@material-ui/core';
@@ -46,7 +45,6 @@ const FormListener = () => {
       <br/>
       <TextField
         onChange={e => setBio(e.target.value)}
-        //id="outlined-basic"
         label="Bio"
         variant="outlined" />
       <br/><br/>
@@ -76,8 +74,6 @@ const FormListener = () => {
       </FormControl>
       <TextField
         onChange={e => setCity(e.target.value)}
-        //id="outlined-basic"
-        label="City"
         variant="outlined" />
       <br/>
       <br/>

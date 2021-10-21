@@ -8,7 +8,6 @@ form.put('/setType/:type', async (req, res) => {
     const {type} = req.params;
     const currentUser = await User.findByPk(id);
     await currentUser.update({type: type});
-    //console.log('updating type,', type)
 
 
   } catch (err) {
@@ -29,7 +28,6 @@ form.get('/user', async (req, res) => {
 
 form.put('/createListener', (req, res) => {
   const { bio, favGenre, favArtist, city } = req.body;
-  //const id = 1;
   const {id} = req.user;
   User.findByPk(id)
     .then(user => {
@@ -52,7 +50,6 @@ form.put('/createListener', (req, res) => {
 
 form.put('/createArtist', (req, res) => {
   const { artistBio, myGenre, artistName, city } = req.body;
-  //const id = 2;
   const {id} = req.user;
   User.findByPk(id)
     .then(user => {

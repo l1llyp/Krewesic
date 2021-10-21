@@ -54,7 +54,6 @@ const FormArtist = () => {
       <br/><br/>
       <TextField
         onChange={e => setMyBio(e.target.value)}
-        //id="outlined-basic"
         label="Bio"
         variant="outlined" />
       <br/>
