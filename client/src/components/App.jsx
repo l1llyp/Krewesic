@@ -29,7 +29,7 @@ const App = (props) => {
   const [picture, setPicture] = useState('');
   const [type, setType] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
-  const value = {name, setName, picture, setPicture, type, setType, loggedIn, setLoggedIn}; 
+  const value = {name, setName, picture, setPicture, type, setType, loggedIn, setLoggedIn};
 
   return (
     <AppStyles>
@@ -42,7 +42,7 @@ const App = (props) => {
             <Link to='/mapevents'>map events</Link>
             <Link to='/messages'>Messages</Link>
           </nav>
-        
+
           <Switch>
             <Route exact path="/" component={Login}>
             </Route>
@@ -68,18 +68,16 @@ const App = (props) => {
               <MapEvents />
             </Route>
             <Route path='/messages' component={MessagesPage}>
-           
             </Route>
             <Route>
               <div>404 page not available</div>
             </Route>
-          
           </Switch>
         </Router>
       </GlobalContext.Provider>
     </AppStyles>
   );
-  
+
 };
 
 export default App;

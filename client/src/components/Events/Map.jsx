@@ -1,4 +1,4 @@
-import keys from './keys.js';
+//import keys from './keys.js';
 import React, {useState, memo, useEffect} from 'react';
 import { GoogleMap, LoadScript} from '@react-google-maps/api';
 import styled from 'styled-components';
@@ -27,12 +27,12 @@ const Map = () => {
         googleMapsApiKey={keys.GOOGLE_MAPS_KEY}
       >
         <GoogleMap
-      
+
           mapContainerStyle={containerStyle}
           center={center}
           zoom={10}
         >
-        
+
           <></>
         </GoogleMap>
       </LoadScript>
