@@ -18,8 +18,8 @@ form.put('/setType/:type', async (req, res) => {
 
 form.get('/user', async (req, res) => {
   try {
-    const {id, name, picture, type, bio, favGenre, favArtist } = req.user;
-    res.status(201).send({id, name, picture, type, bio, favGenre, favArtist});
+    const {id, name, picture, type, bio, favGenre, favArtist, artistBio, artistName, myGenre, city } = req.user;
+    res.status(201).send({id, name, picture, type, bio, favGenre, favArtist, artistBio, artistName, myGenre, city });
 
   } catch (err) {
     console.log('get err', err);
@@ -28,16 +28,39 @@ form.get('/user', async (req, res) => {
 
 
 form.put('/createListener', (req, res) => {
-  const { bio, favGenre, favArtist } = req.body;
-  //const id = 3;
-  const {id} = req.user;
-  console.log(id, 'NAAAAAAME');
+  const { bio, favGenre, favArtist, city } = req.body;
+  const id = 1;
+  //const {id} = req.user;
   User.findByPk(id)
     .then(user => {
       user.update({
         bio: bio,
         favGenre: favGenre,
-        favArtist: favArtist
+        favArtist: favArtist,
+        city: city
+      })
+        .then(() => {
+          console.log('hello');
+          res.sendStatus(201);
+        });
+    })
+    .catch(err => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+});
+
+form.put('/createArtist', (req, res) => {
+  const { artistBio, myGenre, artistName, city } = req.body;
+  const id = 2;
+  //const {id} = req.user;
+  User.findByPk(id)
+    .then(user => {
+      user.update({
+        artistBio: artistBio,
+        myGenre: myGenre,
+        artistName: artistName,
+        city: city
       })
         .then(() => {
           console.log('hello');
