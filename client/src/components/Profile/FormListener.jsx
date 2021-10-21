@@ -74,8 +74,6 @@ const FormListener = () => {
       </FormControl>
       <TextField
         onChange={e => setCity(e.target.value)}
-        id="outlined-basic"
-        label="My City"
         variant="outlined" />
       <br/>
       <br/>
