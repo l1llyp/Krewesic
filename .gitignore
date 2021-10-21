@@ -4,3 +4,4 @@ client/dist/bundles.js.map
 .env
 db/db.config.js
 config/keys.js
+server/routes/sampleData
