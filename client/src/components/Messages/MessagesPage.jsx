@@ -19,7 +19,7 @@ const MessagesPage = () => {
     console.log('ERROR!:', err);
   })
 }
-
+ 
 useEffect(() => {
   getMessages();
 }, []);
