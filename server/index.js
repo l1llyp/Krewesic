@@ -10,7 +10,7 @@ const passport = require('passport');
 
 const passportSetup = require('../config/passport-setup');
 const {db} = require('../db');
-const auth = require('./routes/authenticate');
+const auth = require('./routes/authenticate')
 const {form} = require('./routes/form.js');
 const events = require('./routes/events.js')
 
