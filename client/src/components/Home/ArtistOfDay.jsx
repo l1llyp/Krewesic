@@ -27,7 +27,7 @@ const ArtistOfDay = (props) => {
   return (
     <StyledArtistOfDay>
       this is the artist of the day and/or the home page??? {name} who is a type {type}
-    
+
     </StyledArtistOfDay>
   );
 };

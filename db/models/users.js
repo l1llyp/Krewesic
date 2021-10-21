@@ -19,7 +19,19 @@ const dbUser = (sequelize, DataTypes) => {
     type: {
       type: Sequelize.STRING,
       defaultValue: null
-    }
+    },
+    bio: {
+      type: Sequelize.STRING,
+      defaultValue: null
+    },
+    favArtist: {
+      type: Sequelize.STRING,
+      defaultValue: null
+    },
+    favGenre: {
+      type: Sequelize.STRING,
+      defaultValue: null
+    },
   });
 };
 
