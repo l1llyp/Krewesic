@@ -39,13 +39,13 @@ const Map = () => {
       lng: e.latLng.lng()
     }]);
     console.log(venues);
-  } , [])
+  }, []);
 
 
-    const mapRef = useRef();
-    const onMapLoad = useCallback(map => {
-      mapRef.current = map
-    },[])
+  const mapRef = useRef();
+  const onMapLoad = useCallback(map => {
+    mapRef.current = map;
+  }, []);
   
 
 
@@ -68,7 +68,7 @@ const Map = () => {
               key={i} 
               position={{lat: venue.lat, lng: venue.lng}} 
               onClick={() => {
-                setSelected(venue)
+                setSelected(venue);
               }}
             />
           ))}
@@ -77,7 +77,7 @@ const Map = () => {
             onCloseClick={() => setSelected(null)}
           >
             <h3>info window</h3>
-            </InfoWindow>)}
+          </InfoWindow>)}
         </GoogleMap>
     
       </div>

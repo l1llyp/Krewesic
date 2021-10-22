@@ -14,10 +14,10 @@ const MapEvents = () => {
   const searchBand = async() => {
     console.log('click search');
     //send bandName to the back end
-    //const {data} = await axios.get(`/events/bandSearch/${bandName}`);
+    const {data} = await axios.get(`/events/bandSearch/${bandName}`);
 
     //right now hard coded to receive sample data so not use api key too much
-    const {data} = await axios.get('/events/sampleData');
+    // const {data} = await axios.get('/events/sampleData');
     console.log(data);
 
     //clear the input text
@@ -32,6 +32,12 @@ const MapEvents = () => {
     const {data} = await axios.get('/events/sampleCity');
     console.log('data', data);
   };
+
+  const searchDate = async() => {
+    //const {data} = await axios.get('/events/dateSearch') <-- include start date, fin date, city
+    const {data} = await axios.get('/events/sampleLocalWeekend');
+    console.log('daate data', data);
+  };
   
   return (
     
@@ -42,6 +48,8 @@ const MapEvents = () => {
      
       <Button onClick={searchCity}>search city</Button>
       map events component
+      <Button onClick={searchDate}>search nolaween</Button>
+
       <Map />
     </div>
   );
