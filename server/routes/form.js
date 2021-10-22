@@ -17,8 +17,8 @@ form.put('/setType/:type', async (req, res) => {
 
 form.get('/user', async (req, res) => {
   try {
-    const {id, name, picture, type, bio, favGenre, favArtist, artistBio, artistName, myGenre, city } = req.user;
-    res.status(201).send({id, name, picture, type, bio, favGenre, favArtist, artistBio, artistName, myGenre, city });
+    const {id, name, picture, type, bio, favGenre, favArtist, artistBio, artistName, myGenre, city, pic, setPic } = req.user;
+    res.status(201).send({id, name, picture, type, bio, favGenre, favArtist, artistBio, artistName, myGenre, city, pic, setPic });
 
   } catch (err) {
     console.log('get err', err);
@@ -27,7 +27,7 @@ form.get('/user', async (req, res) => {
 
 
 form.put('/createListener', (req, res) => {
-  const { bio, favGenre, favArtist, city } = req.body;
+  const { bio, favGenre, favArtist, city, pic } = req.body;
   const {id} = req.user;
   User.findByPk(id)
     .then(user => {
@@ -35,7 +35,8 @@ form.put('/createListener', (req, res) => {
         bio: bio,
         favGenre: favGenre,
         favArtist: favArtist,
-        city: city
+        city: city,
+        pic: pic
       })
         .then(() => {
           console.log('hello');
@@ -49,7 +50,7 @@ form.put('/createListener', (req, res) => {
 });
 
 form.put('/createArtist', (req, res) => {
-  const { artistBio, myGenre, artistName, city } = req.body;
+  const { artistBio, myGenre, artistName, city, pic } = req.body;
   const {id} = req.user;
   User.findByPk(id)
     .then(user => {
@@ -57,7 +58,8 @@ form.put('/createArtist', (req, res) => {
         artistBio: artistBio,
         myGenre: myGenre,
         artistName: artistName,
-        city: city
+        city: city,
+        pic: pic
       })
         .then(() => {
           console.log('hello');

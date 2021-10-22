@@ -10,6 +10,7 @@ const GlobalContext = React.createContext({
   myGenre: '',
   artistBio: '',
   favArtist: '',
+  setPic: '',
 });
 
 export default GlobalContext;

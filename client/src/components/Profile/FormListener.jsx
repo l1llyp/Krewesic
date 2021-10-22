@@ -14,6 +14,7 @@ const FormListener = () => {
   const [ favArtist, setArtist ] = useState('');
   const [ favGenre, setGenre ] = useState('');
   const [ city, setCity ] = useState('');
+  const [ pic, setPic] = useState('');
   const [ data, setData ] = useState(null);
 
 
@@ -22,7 +23,8 @@ const FormListener = () => {
       bio: bio,
       favArtist: favArtist,
       favGenre: favGenre,
-      city: city
+      city: city,
+      pic: pic
     };
     axios.put('/form/createListener', data).then(res => {
       setData(res.data);
@@ -30,6 +32,7 @@ const FormListener = () => {
       setArtist('');
       setGenre('');
       setCity('');
+      setPic('');
     }).catch(err => {
       console.log('darn', err);
     });
@@ -66,6 +69,7 @@ const FormListener = () => {
           <MenuItem value={'Rock'}>Rock</MenuItem>
           <MenuItem value={'Pop'}>Pop</MenuItem>
           <MenuItem value={'Hip Hop'}>Hip Hop</MenuItem>
+          <MenuItem value={'Indie'}>Indie</MenuItem>
           <MenuItem value={'Metal'}>Metal</MenuItem>
           <MenuItem value={'Country'}>Country</MenuItem>
           <MenuItem value={'House'}>House</MenuItem>
@@ -74,6 +78,13 @@ const FormListener = () => {
       </FormControl>
       <TextField
         onChange={e => setCity(e.target.value)}
+        label="My City"
+        variant="outlined" />
+      <br/>
+      <br/>
+      <TextField
+        onChange={e => setPic(e.target.value)}
+        label="Profile Picture"
         variant="outlined" />
       <br/>
       <br/>
