@@ -3,8 +3,13 @@ import React, { useState } from 'react';
 const GlobalContext = React.createContext({
   name: '',
   type: '',
-  // img: '',
-  // artistOfTheDay: ''
+  bio: '',
+  city: '',
+  artistName: '',
+  favGenre: '',
+  myGenre: '',
+  artistBio: '',
+  favArtist: '',
 });
 
-export default GlobalContext; 
+export default GlobalContext;

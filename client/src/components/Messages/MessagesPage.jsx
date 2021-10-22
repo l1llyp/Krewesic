@@ -9,28 +9,28 @@ const MessagesPage = () => {
   const [messages, setMessages] = useState([]);
 
   //**Get all messages from current User*/
- const getMessages = () => {
-  axios.get('/messages/sendMessage')
-  .then( (results) => {
-    setMessages(results.data)
-  console.log('Messages:', results.data);
-  })
-  .catch( err => {
-    console.log('ERROR!:', err);
-  })
-}
+  const getMessages = () => {
+    axios.get('/messages/sendMessage')
+      .then( (results) => {
+        setMessages(results.data);
+        console.log('Messages:', results.data);
+      })
+      .catch( err => {
+        console.log('ERROR!:', err);
+      });
+  };
  
-useEffect(() => {
-  getMessages();
-}, []);
+  useEffect(() => {
+    getMessages();
+  }, []);
 
   return (
     <div className='chat'>
 
-<MessageForm />
-<MessagesView messages={messages}/>
+      <MessageForm />
+      <MessagesView messages={messages}/>
     </div>
-  )
-}
+  );
+};
 
 export default MessagesPage;

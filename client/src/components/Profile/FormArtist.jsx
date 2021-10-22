@@ -5,7 +5,6 @@ import {Button} from '@material-ui/core';
 import {TextField} from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Typography from '@material-ui/core/Typography';
-import {Menu} from '@mui/material';
 import { FormControl } from '@mui/material';
 import { InputLabel } from '@mui/material';
 import { Select } from '@mui/material';
@@ -13,19 +12,30 @@ import {MenuItem} from '@material-ui/core';
 
 
 const FormArtist = () => {
-  const [ bio, setBio ] = useState('');
-  const [ artistName, setMyName ] = useState('Type Artist');
-  const [ myGenre, setMyGenre ] = useState('Pick Genre!');
+  const [ artistBio, setMyBio ] = useState('');
+  const [ artistName, setMyName ] = useState('');
+  const [ myGenre, setMyGenre ] = useState('');
   const [ city, setCity ] = useState('');
+  const [data, setData] = useState(null);
 
-  // const createListener = () => {
-  //   axios.put('/createListener', {
-  //     artistBio: bio,
-  //     artistName: favArtist,
-  //     myGenre: favGenre
-  //   })
-  //     .catch(err => console.log('darn', err));
-  // };
+
+  const handleCreate = () => {
+    const data = {
+      artistBio: artistBio,
+      artistName: artistName,
+      myGenre: myGenre,
+      city: city
+    };
+    axios.put('/form/createArtist', data).then(res => {
+      setData(res.data);
+      setMyBio('');
+      setMyName('');
+      setMyGenre('');
+      setCity('');
+    }).catch(err => {
+      console.log('darn', err);
+    });
+  };
 
   return (
     <div>
@@ -43,8 +53,7 @@ const FormArtist = () => {
         variant="outlined" />
       <br/><br/>
       <TextField
-        onChange={e => setBio(e.target.value)}
-        //id="outlined-basic"
+        onChange={e => setMyBio(e.target.value)}
         label="Bio"
         variant="outlined" />
       <br/>
@@ -52,7 +61,6 @@ const FormArtist = () => {
       <FormControl fullWidth>
         <InputLabel >My Genre</InputLabel>
         <Select
-          defaultValue={ myGenre }
           onChange={e => setMyGenre(e.target.value)}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -76,8 +84,8 @@ const FormArtist = () => {
       <br/>
       <br/>
       <Button
-        onClick={() => createListener()}
-        // href='/artistofday'
+        onClick={handleCreate}
+        href='/artistofday'
         color="primary"
         variant="contained"
         startIcon={ <AccountCircle/> }

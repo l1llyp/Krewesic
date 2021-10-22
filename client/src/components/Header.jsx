@@ -47,7 +47,9 @@ const Header = (props) => {
   //note: after more development, a hamburger menu shold be on the right of all this.  the logo should also be ... a logo
 
   const display = () => {
-    return loggedIn ? <Typography className='flexChild'>{name} type: {type} <Button className='btn' onClick={logout}>logout</Button></Typography> : <div ><a href='/auth/google'><Button className='btn flexchild' >Log In</Button></a></div>;
+    return loggedIn
+      ? <Typography className='flexChild'>{name} type: {type} <Button className='btn' onClick={logout}>logout</Button></Typography>
+      : <div ><a href='/auth/google'><Button className='btn flexchild' >Log In</Button></a></div>;
   };
   return (
     <StyledHeader>
