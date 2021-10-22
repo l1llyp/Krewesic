@@ -60,35 +60,38 @@ events.get('/citySearch/:city', async(req, res) => {
 
 events.get('/dateSearch/:date1/:date2/:city', async (req, res) => {
   try {
-    //const {date1, date2, city} = req.params;
-    //hardcoded for testing
-    const date1 = '2021-10-29';
-    const date2 = '2021-10-31';
-    const city = 'New Orleans';
-    
-    
-    console.log('get datetime');
-
+    const {date1, date2, city} = req.params;
+  
 
     const {data} = await axios.get(`${baseUri}/events?client_id=${process.env.SEATGEEK_CLIENT_ID}&client_secret=${process.env.SEATGEEK_SECRET}&datetime_local.gte=${date1}&datetime_local.lte=${date2}&venue.city=${city}`);
 
-    //const localEvents = data.events.filter(event => event.venue.state === 'LA')
-    const jdata = JSON.stringify(data);
-
-    await fs.writeFile('datesamplenolahalloweenwknd.txt', jdata, (err) => {
-      console.log('err', err);
+ 
+    const releventInfo = data.events.map(event => {
+      const {datetime_local, type, performers, venue, id} = event;
+      const lat = venue.location.lat;
+      const lng = venue.location.lon;
+      const sgId = 'sg-' + id.toString()
+      return {datetime_local, type, performers, id, sgId, venue, lat, lng};
     });
-
-    console.log('data', data);
-    res.status(201).send(data);
+    res.status(201).send(releventInfo);
   } catch (err) {
     console.log(err);
     res.sendStatus(500);
   }
 });
 
+events.get('/interestedIn', async (req, res) => {
+  try {
+    //do a post
 
+    res.sendStatus(200)
+  } catch (err) {
+    console.log(err)
+    res.sendStatus(500);
+  }
+})
 
+//for requests that dont use the api call too much
 events.get('/sampleData', async(req, res) => {
   try {
     res.status(201).json(sampleData);
@@ -116,10 +119,11 @@ events.get('/sampleLocalWeekend', async(req, res) => {
 
     // console.log(nolaweenSample.events)
     const releventInfo = nolaweenSample.events.map(event => {
-      const {datetime_local, type, performers, venue} = event;
+      const {datetime_local, type, performers, venue, id} = event;
+      const sgId = 'sg-' + id.toString()
       const lat = venue.location.lat;
       const lng = venue.location.lon;
-      return {datetime_local, type, performers, venue, lat, lng};
+      return {datetime_local, type, performers, id, venue, lat, lng, sgId};
     });
     res.status(201).json(releventInfo);
   } catch (err) {

@@ -19,6 +19,11 @@ import Header from './Header.jsx';
 import GlobalContext from './Contexts/GlobalContext.jsx';
 import MessagesPage from './Messages/MessagesPage.jsx';
 
+//for date picker
+import AdapterLuxon from '@mui/lab/AdapterLuxon';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import {DateTime} from 'luxon';
+
 const AppStyles = styled.div`
   margin: 50px;
 `;
@@ -33,6 +38,7 @@ const App = (props) => {
 
   return (
     <AppStyles>
+ 
       <GlobalContext.Provider value={value}>
         <Router>
           <Header />
@@ -77,6 +83,7 @@ const App = (props) => {
           </Switch>
         </Router>
       </GlobalContext.Provider>
+
     </AppStyles>
   );
   
