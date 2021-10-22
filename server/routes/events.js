@@ -70,7 +70,7 @@ events.get('/dateSearch/:date1/:date2/:city', async (req, res) => {
       const {datetime_local, type, performers, venue, id} = event;
       const lat = venue.location.lat;
       const lng = venue.location.lon;
-      const sgId = 'sg-' + id.toString()
+      const sgId = 'sg-' + id.toString();
       return {datetime_local, type, performers, id, sgId, venue, lat, lng};
     });
     res.status(201).send(releventInfo);
@@ -84,12 +84,12 @@ events.get('/interestedIn', async (req, res) => {
   try {
     //do a post
 
-    res.sendStatus(200)
+    res.sendStatus(200);
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.sendStatus(500);
   }
-})
+});
 
 //for requests that dont use the api call too much
 events.get('/sampleData', async(req, res) => {
@@ -120,7 +120,7 @@ events.get('/sampleLocalWeekend', async(req, res) => {
     // console.log(nolaweenSample.events)
     const releventInfo = nolaweenSample.events.map(event => {
       const {datetime_local, type, performers, venue, id} = event;
-      const sgId = 'sg-' + id.toString()
+      const sgId = 'sg-' + id.toString();
       const lat = venue.location.lat;
       const lng = venue.location.lon;
       return {datetime_local, type, performers, id, venue, lat, lng, sgId};

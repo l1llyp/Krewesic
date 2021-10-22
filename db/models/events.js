@@ -17,7 +17,7 @@ const dbEvent = (sequelize) => {
     //etc
     
 
-  })
-}
+  });
+};
 
 module.exports = {dbEvent};

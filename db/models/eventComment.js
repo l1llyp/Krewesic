@@ -16,7 +16,7 @@ const dbEventComment = (sequelize) => {
       //foreign key
     }
 
-  })
-}
+  });
+};
 
 module.exports = {dbEventComment};

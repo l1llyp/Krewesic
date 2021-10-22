@@ -6,8 +6,8 @@ const InfoCard = ({event}) => {
   const {datetime_local, performers, type, venue, id, sgId } = event;
 
   const interestedIn = async() => {
-    await axios.post('/interestedIn', {eventId: sgId})
-  }
+    await axios.post('/interestedIn', {eventId: id, sgId: sgId, });
+  };
 
   return (
     <div>

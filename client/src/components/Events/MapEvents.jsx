@@ -2,11 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {TextField, Button} from '@material-ui/core/';
 import axios from 'axios';
 import Map from './Map.jsx';
-//for date picker
-import AdapterLuxon from '@mui/lab/AdapterLuxon';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import {DateTime} from 'luxon';
-import { MobileDatePicker, DesktopDatePicker, DatePicker } from '@material-ui/pickers';
+
 
 //import './sample.json';
 
