@@ -1,28 +1,29 @@
 # Krewesic
 ## purpose
-A social media app that allows you to find like minded music lovers to attend concerts with.  Also allows local artists to post upcoming events, and host  live streams on the platform.
+A social media app that allows you to find like-minded music lovers to attend concerts with as well as discover new artists.  The application also allows local artists to post upcoming events, and host  live streams on the platform in order to expand their artistic reach.
 ## features
--artist and listener profile pages
+-a profile setup allowing users to interact with the platform as either a listener or artist
 -a home page displaying artist of the day to bring attention to a variety of artists
 -a map to display events in a local area for a range of dates
 -a way to find other users who are interested in attending those events and easily provide a networking environment to connect
 -a messaging service to communicate with other users
+-a personal profile component in which users can post music related info relating to their personality for other users to discover
 ## tech stack
 -NodeJS and Express for server side
 -React for front end
--MaterialUI for styling
+-MaterialUI for styling and component structure
 -Postgres for the database
 -Sequelize for ORM
 -axios for making api requests
 -SeatGeek API for concert information
 -AudioDB API for artist information
--Google OAuth2 for authentication
+-Google OAuth2 and passport for authentication
 -Google Maps and Places API for google maps and places
 # setup
 This app was developed using node v14.17.5 and postgres 12.7
 1. Clone down repo , change into the root directory for the project, and run npm install
 2. Make sure postgres is installed on your computer.  Open postgres shell and create a database 'krewesic',  (CREATE DATABASE krewesic)
-3. To use the database use \dt krewesic
+3. To use the database use \dt krewesic (on windows: \c krewesic)
 4. Set up db.config -- see db.config below
 5. Run npm run dev or npm run build to compile the webpack, depending if you are working in production or development mode
 6. Set up environmental variables.  see the env section below for format
@@ -64,4 +65,23 @@ GOOGLE MAPS API:
 https://console.cloud.google.com/apis/dashboard
 
 SEATGEEK API:
+
 https://seatgeek.com/?next=%2Faccount%2Fdevelop#login
+
+## frontend
+In the frontend we used react routing in order to navigate between the components we utilized.
+The login component is the first component you encounter. After we have the form component in which
+the user is redirected to upon their first login on the site. The form component is there for the purpose of choosing
+which type of profile you would like to create. The two choices are listener and artist. If you click listener you are redirected to
+the listenerForm component where you will fill out listener user information necessary to setting up your user profile. If you click artist you are redirected to
+the artistForm component where you will fill out artist user information necessary to setting up your user profile.
+
+Upon clicking the create profile button you are redirected to the home page dubbed the artist of the day in which the application on a 24 hour basis display a random artist in order to boost their status. This component displays relevant information to the artist as well as allows users to check out their artist profile by clicking their information on the artist of the day component.
+
+We have a Navbar displayed on every page that indicate where you can navigate in the application. We have profile which display information you filled out during your profile creation. This component will conditionally render the profile based on the user type. We also have an events component that allows you to interact with google maps on our application and search for concerts in a designated timeframe you fill out.
+
+Listeners on the app also have the ability to directly live chat with one another via websocket integration. This allows users to further interact and plan for potential concerts with other users on the app.
+
+## styling
+For styling, we implemented material-ui into our application in order to design our components.
+
