@@ -14,7 +14,7 @@ const FormListener = () => {
   const [ favArtist, setArtist ] = useState('');
   const [ favGenre, setGenre ] = useState('');
   const [ city, setCity ] = useState('');
-  const [data, setData] = useState(null);
+  const [ data, setData ] = useState(null);
 
 
   const handleSubmit = () => {
