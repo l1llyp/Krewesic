@@ -4,24 +4,22 @@ import { GoogleMap, LoadScript, useLoadScript, Marker, InfoWindow} from '@react-
 import styled from 'styled-components';
 //require('dotenv').config()
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
+import InfoCard from './InfoCard.jsx';
 
-const MapStyles = styled.div`
-  .container {
-    width: '400px',
-  height: '400px'
-  }
-`;
+
+
 
 const containerStyle = {
-  width: '400px',
-  height: '400px'
+  width: '500px',
+  height: '500px'
 };
 //  mapContainerStyle={containerStyle}
 
 
+
 const libraries = ['places'];
 
-const Map = () => {
+const Map = ({events}) => {
   
   const center = { lat: 30, lng: -90 };
  
@@ -47,6 +45,15 @@ const Map = () => {
     mapRef.current = map;
   }, []);
   
+  useEffect(() => {
+    // const locations = events.map(event => {
+    //   const latLng = {};
+    //   latLng.lat = event.location.lat;
+    //   latLng.lng = event.location.lon;
+    //   return latLng
+    // })
+    setVenues(events);
+  }, [events]);
 
 
   //return the map component
@@ -68,6 +75,7 @@ const Map = () => {
               key={i} 
               position={{lat: venue.lat, lng: venue.lng}} 
               onClick={() => {
+                console.log(venue.type);
                 setSelected(venue);
               }}
             />
@@ -76,7 +84,9 @@ const Map = () => {
             position={{lat: selected.lat, lng: selected.lng}}
             onCloseClick={() => setSelected(null)}
           >
-            <h3>info window</h3>
+            <div>info window {selected.type} 
+              <InfoCard event={selected} />
+            </div>
           </InfoWindow>)}
         </GoogleMap>
     

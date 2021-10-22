@@ -61,7 +61,8 @@
     "regenerator-runtime": "^0.13.9",
     "sequelize": "^6.7.0",
     "styled-components": "^5.3.3",
-    "underscore": "^1.13.1"
+    "underscore": "^1.13.1",
+    "use-places-autocomplete": "^1.9.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",

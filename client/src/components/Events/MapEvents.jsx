@@ -10,6 +10,7 @@ const MapEvents = () => {
   
   const [bandName, setBandName] = useState('');
   const [city, setCity] = useState('');
+  const [events, setEvents] = useState([]);
 
   const searchBand = async() => {
     console.log('click search');
@@ -37,6 +38,7 @@ const MapEvents = () => {
     //const {data} = await axios.get('/events/dateSearch') <-- include start date, fin date, city
     const {data} = await axios.get('/events/sampleLocalWeekend');
     console.log('daate data', data);
+    setEvents(data);
   };
   
   return (
@@ -50,7 +52,7 @@ const MapEvents = () => {
       map events component
       <Button onClick={searchDate}>search nolaween</Button>
 
-      <Map />
+      <Map events={events} />
     </div>
   );
 };

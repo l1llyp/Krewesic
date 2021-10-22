@@ -117,7 +117,9 @@ events.get('/sampleLocalWeekend', async(req, res) => {
     // console.log(nolaweenSample.events)
     const releventInfo = nolaweenSample.events.map(event => {
       const {datetime_local, type, performers, venue} = event;
-      return {datetime_local, type, performers, venue};
+      const lat = venue.location.lat;
+      const lng = venue.location.lon;
+      return {datetime_local, type, performers, venue, lat, lng};
     });
     res.status(201).json(releventInfo);
   } catch (err) {
