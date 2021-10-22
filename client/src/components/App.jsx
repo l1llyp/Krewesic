@@ -49,7 +49,7 @@ const App = (props) => {
           <Route path='/artistofday' >
             <ArtistOfDay />
           </Route>
-          <Route  path='/profile' >
+          <Route path='/profile' >
             <Profile />
           </Route>
           <Route path='/form' >

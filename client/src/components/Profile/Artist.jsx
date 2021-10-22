@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { ReactDOM } from 'react';
+import axios from 'axios';
+
 
 const Artist = (props) => {
+
+
   return (
     <div>
-      artist component
+     <h1 className='header'>
+       Testing
+     </h1>
     </div>
   );
 };

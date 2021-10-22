@@ -29,6 +29,6 @@ db.sync()
   })
   .catch((err) => console.error('err', err));
 
-  module.exports = {
-    db,
-    User, Messages}
+module.exports = {
+  db,
+  User, Messages};

@@ -60,6 +60,7 @@ const FormArtist = () => {
         >
           <MenuItem value={'Rock'}>Rock</MenuItem>
           <MenuItem value={'Pop'}>Pop</MenuItem>
+          <MenuItem value={'Indie'}>Indie</MenuItem>
           <MenuItem value={'Hip Hop'}>Hip Hop</MenuItem>
           <MenuItem value={'Metal'}>Metal</MenuItem>
           <MenuItem value={'Country'}>Country</MenuItem>

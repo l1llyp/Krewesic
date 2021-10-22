@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const GlobalContext = React.createContext({
   name: '',
-  type: ''
+  type: '',
+  // img: '',
+  // artistOfTheDay: ''
 });
 
 export default GlobalContext; 
