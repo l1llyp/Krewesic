@@ -1,5 +1,6 @@
 const {Sequelize} = require('sequelize');
 
+//the event will end up in the db when a user interacts wth it-- comments on it or likes it
 const dbSGEvent = (sequelize) => {
   return sequelize.define('SGEvent', {
     id: {
