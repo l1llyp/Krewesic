@@ -3,7 +3,8 @@ const dbConfig = require('./db.config.js');
 const pg = require('pg');
 const {dbUser} = require('./models/users.js');
 const { dbMessages } = require('./models/messages.js');
-const db = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+const {dbSGEvent} = require('./models/SGEvent.js')
+const db = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, { 
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
 });
@@ -18,6 +19,7 @@ const db = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 
 User = dbUser(db);
 Messages = dbMessages(db);
+SGEvent = dbSGEvent(db);
 
 User.hasMany(Messages);
 Messages.belongsTo(User);
