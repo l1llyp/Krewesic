@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const EventLandingPage = () => {
   return (
@@ -6,7 +6,7 @@ const EventLandingPage = () => {
       events landing page
 
     </div>
-  )
-}
+  );
+};
 
 export default EventLandingPage;

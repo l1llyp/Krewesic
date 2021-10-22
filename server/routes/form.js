@@ -17,8 +17,8 @@ form.put('/setType/:type', async (req, res) => {
 
 form.get('/user', async (req, res) => {
   try {
-    const {id, name, picture, type, bio, favGenre, favArtist, artistBio, artistName, myGenre, city, pic, setPic } = req.user;
-    res.status(201).send({id, name, picture, type, bio, favGenre, favArtist, artistBio, artistName, myGenre, city, pic, setPic });
+    const {id, name, picture, type, bio, favGenre, favArtist, artistBio, artistName, myGenre, city, pic, setPic, influences, setInfluence } = req.user;
+    res.status(201).send({id, name, picture, type, bio, favGenre, favArtist, artistBio, artistName, myGenre, city, pic, setPic, influences, setInfluence });
 
   } catch (err) {
     console.log('get err', err);
@@ -50,7 +50,7 @@ form.put('/createListener', (req, res) => {
 });
 
 form.put('/createArtist', (req, res) => {
-  const { artistBio, myGenre, artistName, city, pic } = req.body;
+  const { artistBio, myGenre, artistName, city, pic, influences } = req.body;
   const {id} = req.user;
   User.findByPk(id)
     .then(user => {
@@ -59,7 +59,8 @@ form.put('/createArtist', (req, res) => {
         myGenre: myGenre,
         artistName: artistName,
         city: city,
-        pic: pic
+        pic: pic,
+        influences: influences
       })
         .then(() => {
           console.log('hello');

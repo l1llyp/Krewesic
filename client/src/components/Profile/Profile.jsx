@@ -12,7 +12,7 @@ const Profile = () => {
 
 
 
-  const {name, setName, picture, setPicture, type, setType, city, setCity, bio, setBio, favArtist, setArtist, favGenre, setGenre, artistBio, setMyBio, artistName, setMyName, myGenre, setMyGenre, pic, setPic } = useContext(GlobalContext);
+  const {name, setName, picture, setPicture, type, setType, city, setCity, bio, setBio, favArtist, setArtist, favGenre, setGenre, artistBio, setMyBio, artistName, setMyName, myGenre, setMyGenre, pic, setPic, influences, setInfluence } = useContext(GlobalContext);
 
   useEffect(async()=>{
     const {data} = await axios.get('/form/user');
@@ -27,6 +27,7 @@ const Profile = () => {
     setMyGenre(data.myGenre);
     setMyBio(data.artistBio);
     setPic(data.pic);
+    setInfluence(data.influences);
     console.log('picture', picture);
   }, []);
 
@@ -60,7 +61,10 @@ const Profile = () => {
       >
         <img
           src={pic}
+          height="150"
+          width="150"
         />
+        <br/>
         { bio || artistBio }
       </Box>
       <br/>
@@ -79,7 +83,7 @@ const Profile = () => {
       <Box
         align='center'
       >
-        { favArtist || null }
+        { favArtist || influences }
       </Box>
     </Box>
   );
