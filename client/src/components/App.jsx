@@ -19,6 +19,8 @@ import Header from './Header.jsx';
 import GlobalContext from './Contexts/GlobalContext.jsx';
 import MessagesPage from './Messages/MessagesPage.jsx';
 
+
+
 const AppStyles = styled.div`
   margin: 50px;
 `;
@@ -39,6 +41,7 @@ const App = (props) => {
 
   return (
     <AppStyles>
+ 
       <GlobalContext.Provider value={value}>
         <Router>
           <Header />
@@ -81,6 +84,7 @@ const App = (props) => {
           </Switch>
         </Router>
       </GlobalContext.Provider>
+
     </AppStyles>
   );
 
