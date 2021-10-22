@@ -4,7 +4,7 @@ require('dotenv').config();
 const axios = require('axios');
 //const sampleData = require('./sampleData/sample.json');
 //const citySample = require('./sampleData/citySample.json');
-const nolaweenSample = require('./sampleData/datesamplenolahalloweenwknd.json');
+//const nolaweenSample = require('./sampleData/datesamplenolahalloweenwknd.json');
 
 const fs = require('fs');
 
