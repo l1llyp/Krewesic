@@ -30,7 +30,7 @@ const MapEvents = () => {
 
     //right now hard coded to retreive sample data so not use api key too much
     const {data} = await axios.get('/events/sampleCity');
-    console.log(data);
+    console.log('data', data);
   };
   
   return (
