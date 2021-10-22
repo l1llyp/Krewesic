@@ -5,8 +5,10 @@ const axios = require('axios');
 //const sampleData = require('./sampleData/sample.json');
 //const citySample = require('./sampleData/citySample.json');
 const nolaweenSample = require('./sampleData/datesamplenolahalloweenwknd.json');
+const {SGEvent} = require('../../db');
 
 const fs = require('fs');
+const { dbSGEvent } = require('../../db/models/SGEvent');
 
 
 const baseUri = 'https://api.seatgeek.com/2';
@@ -80,9 +82,17 @@ events.get('/dateSearch/:date1/:date2/:city', async (req, res) => {
   }
 });
 
-events.get('/interestedIn', async (req, res) => {
+events.get('/interestedInSG', async (req, res) => {
   try {
     //do a post
+    const {eventId} = req.body;
+    const event = await SGEvent.findByPk(eventId);
+    if (!event) { //if the event does not exist, create the event
+      await SGEvent.create({id: eventId});
+
+    }
+    //create the interest comment 
+
 
     res.sendStatus(200);
   } catch (err) {

@@ -3,14 +3,12 @@ const {Sequelize} = require('sequelize');
 //the event will end up in the db when a user interacts wth it-- comments on it or likes it
 const dbSGEvent = (sequelize) => {
   return sequelize.define('SGEvent', {
+ 
     id: {
       type: Sequelize.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
-    },
-    sgId: {
-      type: Sequelize.INTEGER,
-      //foreign key pointing to seatgeek id
+      unique: true
+      // pointing to seatgeek id
     },
     type: {
       type: Sequelize.STRING,

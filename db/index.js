@@ -33,4 +33,4 @@ db.sync()
 
 module.exports = {
   db,
-  User, Messages};
+  User, Messages, SGEvent};
