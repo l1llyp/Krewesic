@@ -27,21 +27,23 @@ const AppStyles = styled.div`
 
 const App = (props) => {
   const [ artistBio, setMyBio ] = useState('');
+  const [ influences, setInfluence ] = useState('');
   const [ artistName, setMyName ] = useState('');
   const [ myGenre, setMyGenre ] = useState('');
+  const [ pic, setPic ] = useState('');
   const [ favArtist, setArtist ] = useState('');
   const [ favGenre, setGenre ] = useState('');
-  const [ bio, setBio ] = useState();
+  const [ bio, setBio ] = useState('');
   const [ city, setCity ] = useState('');
   const [name, setName] = useState('');
   const [picture, setPicture] = useState('');
   const [type, setType] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
-  const value = {name, setName, picture, setPicture, type, setType, loggedIn, setLoggedIn, city, setCity, bio, setBio, favArtist, setArtist, favGenre, setGenre, artistBio, setMyBio, artistName, setMyName };
+  const value = {name, setName, picture, setPicture, type, setType, loggedIn, setLoggedIn, city, setCity, bio, setBio, favArtist, setArtist, favGenre, setGenre, artistBio, setMyBio, artistName, setMyName, pic, setPic, myGenre, setMyGenre, influences, setInfluence };
 
   return (
     <AppStyles>
- 
+
       <GlobalContext.Provider value={value}>
         <Router>
           <Header />
@@ -50,6 +52,7 @@ const App = (props) => {
             <Link to='/bands'>bands</Link>
             <Link to='/mapevents'>map events</Link>
             <Link to='/messages'>Messages</Link>
+            <Link to='/profile'>Profile</Link>
           </nav>
 
           <Switch>

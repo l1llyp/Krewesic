@@ -48,6 +48,14 @@ const dbUser = (sequelize, DataTypes) => {
       type: Sequelize.STRING,
       defaultValue: null
     },
+    pic: {
+      type: Sequelize.STRING,
+      defaultValue: null
+    },
+    influences: {
+      type: Sequelize.STRING,
+      defaultValue: null
+    },
   });
 };
 

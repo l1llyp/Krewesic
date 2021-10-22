@@ -16,6 +16,8 @@ const FormArtist = () => {
   const [ artistName, setMyName ] = useState('');
   const [ myGenre, setMyGenre ] = useState('');
   const [ city, setCity ] = useState('');
+  const [ pic, setPic ] = useState('');
+  const [ influences, setInfluence ] = useState('');
   const [data, setData] = useState(null);
 
 
@@ -24,7 +26,9 @@ const FormArtist = () => {
       artistBio: artistBio,
       artistName: artistName,
       myGenre: myGenre,
-      city: city
+      city: city,
+      pic: pic,
+      influences: influences,
     };
     axios.put('/form/createArtist', data).then(res => {
       setData(res.data);
@@ -32,6 +36,8 @@ const FormArtist = () => {
       setMyName('');
       setMyGenre('');
       setCity('');
+      setPic('');
+      setInfluence('');
     }).catch(err => {
       console.log('darn', err);
     });
@@ -58,6 +64,13 @@ const FormArtist = () => {
         variant="outlined" />
       <br/>
       <br/>
+      <TextField
+        onChange={e => setInfluence(e.target.value)}
+        id="outlined-basic"
+        label="Influences"
+        variant="outlined" />
+      <br/>
+      <br/>
       <FormControl fullWidth>
         <InputLabel >My Genre</InputLabel>
         <Select
@@ -69,6 +82,7 @@ const FormArtist = () => {
           <MenuItem value={'Rock'}>Rock</MenuItem>
           <MenuItem value={'Pop'}>Pop</MenuItem>
           <MenuItem value={'Hip Hop'}>Hip Hop</MenuItem>
+          <MenuItem value={'Indie'}>Indie</MenuItem>
           <MenuItem value={'Metal'}>Metal</MenuItem>
           <MenuItem value={'Country'}>Country</MenuItem>
           <MenuItem value={'House'}>House</MenuItem>
@@ -79,6 +93,12 @@ const FormArtist = () => {
         onChange={e => setCity(e.target.value)}
         id="outlined-basic"
         label="My City"
+        variant="outlined" />
+      <br/>
+      <br/>
+      <TextField
+        onChange={e => setPic(e.target.value)}
+        label="Profile Picture"
         variant="outlined" />
       <br/>
       <br/>
