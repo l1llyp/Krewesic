@@ -4,8 +4,8 @@ require('dotenv').config();
 const axios = require('axios');
 //const sampleData = require('./sampleData/sample.json');
 //const citySample = require('./sampleData/citySample.json');
-//const nolaweenSample = require('./sampleData/datesamplenolahalloweenwknd.json');
-const {SGEvent, SGEventComment, User} = require('../../db');
+const nolaweenSample = require('./sampleData/datesamplenolahalloweenwknd.json');
+const {SGEvent, SGEventComment, User, Event} = require('../../db');
 
 const fs = require('fs');
 const { dbSGEvent } = require('../../db/models/SGEvent');
@@ -175,8 +175,6 @@ events.get('/SGcomments/:eventId', async (req, res) => {
         attributes: ['id', 'name']
       }]
     });
-    console.log(comments);
-
     res.status(201).send(comments);
 
   } catch (err) {
@@ -185,28 +183,23 @@ events.get('/SGcomments/:eventId', async (req, res) => {
   }
 });
 
-// //for requests that dont use the api call too much
-// events.get('/sampleData', async(req, res) => {
-//   try {
-//     res.status(201).json(sampleData);
+events.post('/createEvent', async(req, res) => {
+  try {
 
-//   } catch (err) {
-//     console.log(err);
-//     res.sendStatus(500);
-//   }
-// });
+    const {performers, when, type, medium, lat, lng, city, venue} = req.body;
+    //console.log(req.body);
+    const {id} = req.user;
+    //const id = 1 //hardcoded for testing --> change this back
+    await Event.create({
+      performers, when, type, medium, lat, lng, city, venue, artistId: id
 
-// events.get('/sampleCity', async(req, res) => {
-//   try {
-//     console.log(citySample.venues[0]);
-
-//     res.status(201).json(citySample);
-
-//   } catch (err) {
-//     console.log(err);
-//     res.sendStatus(500);
-//   }
-// });
+    });
+    res.sendStatus(200);
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(500);
+  }
+});
 
 events.get('/sampleLocalWeekend', async(req, res) => {
   try {
