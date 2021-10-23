@@ -145,12 +145,13 @@ events.get('/interestedUsersSG/:sgId', async (req, res) => {
 
 events.post('/SGcomment', async(req, res) => {
   try {
-    const {comment} = req.body;
+    const {comment, SGEventId} = req.body;
     const {id} = req.user;
     await SGEventComment.create({
       userId: id,
       text: comment,
       type: 'text',
+      SGEventId
 
     });
   } catch (err) {
@@ -163,21 +164,25 @@ events.get('/SGcomments/:eventId', async (req, res) => {
   try {
     const {eventId} = req.params;
     //get the comments with that event id, include the user who commented
-    await SGEventComment.findAll({
+   const comments = await SGEventComment.findAll({
       where: {
-        SGEventId: eventId
+        SGEventId: eventId,
+        type: 'text'
       },
       include: [{
         model: User,
         attributes: ['id', 'name']
       }]
     })
+    console.log(comments);
+
+    res.status(201).send(comments)
 
   } catch (err) {
     console.log(err);
     res.sendStatus(500);
   }
-})
+});
 
 // //for requests that dont use the api call too much
 // events.get('/sampleData', async(req, res) => {

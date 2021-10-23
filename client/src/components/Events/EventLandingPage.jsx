@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import axios from 'axios';
+import CommentComponent from './CommentComponent.jsx';
 
 const EventLandingPage = () => {
   
@@ -32,13 +33,13 @@ const EventLandingPage = () => {
   };
 
   const comment = async () => {
-    await axios.post('/events/SGcomment', {comment: commentText});
+    await axios.post('/events/SGcomment', {comment: commentText, SGEventId: eventId});
     setCommentText('');
   };
 
   const getComments = async () => {
     const {data} = await axios.get(`/events/SGcomments/${eventId}`);
-    console.log(data);
+    console.log('get comments', data);
     setCommentWall(data);
   };
 
@@ -48,6 +49,7 @@ const EventLandingPage = () => {
 
   useEffect(() => {
     getInterestedUsers(eventId);
+    getComments();
 
   }, []);
 
@@ -77,6 +79,10 @@ const EventLandingPage = () => {
           value={commentText}
         />
         <button onClick={comment}>send comment</button>
+
+        <div>
+          {commentWall.map((comment, i) => <CommentComponent key={i} comment={comment} />)}
+        </div>
 
       </div>
 

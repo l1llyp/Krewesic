@@ -8,7 +8,6 @@ const dbSGEvent = (sequelize) => {
       primaryKey: true,
      
     },
-  
     type: {
       type: Sequelize.STRING,
     }, 
