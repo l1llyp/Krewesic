@@ -12,6 +12,7 @@ const passportSetup = require('../config/passport-setup');
 
 const {Message} = require('./routes/message/messages.js');
 const {Room} = require('./routes/message/rooms.js');
+const {Users} = require('./routes/message/directMessage.js');
 const {db} = require('../db');
 const auth = require('./routes/authenticate');
 const {form} = require('./routes/form.js');
@@ -56,6 +57,7 @@ app.use('/auth', auth);
 app.use('/form', form);
 app.use('/messages', Message);
 app.use('/roomChat', Room);
+app.use('/directMessage', Users);
 app.use('/events', events);
 
 

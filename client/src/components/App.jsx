@@ -18,6 +18,7 @@ import MapEvents from './Events/MapEvents.jsx';
 import Header from './Header.jsx';
 import GlobalContext from './Contexts/GlobalContext.jsx';
 import MessagesPage from './Messages/MessagesPage.jsx';
+import DirectMessages from './DirectMessage/DirectMessages.jsx';
 
 
 
@@ -81,6 +82,7 @@ const App = (props) => {
             </Route>
             <Route path='/messages' component={MessagesPage}>
             </Route>
+            <Route exact path='/DirectMessage' component={DirectMessages} />
             <Route>
               <div>404 page not available</div>
             </Route>

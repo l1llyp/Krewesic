@@ -3,7 +3,7 @@ import axios from 'axios';
 import MessagesView from './MessagesView.jsx';
 import Sidebar from './SidebarChat.jsx';
 import io from 'socket.io-client';
-import GlobalContext from '../Contexts/GlobalContext.jsx';
+import {Link} from 'react-router-dom';
 
 //need the socket to connect to the server, which is the local host
 const socket = io.connect('http://localhost:1337');
@@ -94,6 +94,7 @@ const MessagesPage = () => {
   
   return (
     <div className='message-page' style={page}>
+      <Link to='/DirectMessage'>Direct Messaging </Link>
       <h1>{user}</h1>
       <div className='message-body' style={body}>
         <Sidebar />
