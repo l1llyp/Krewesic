@@ -47,7 +47,7 @@ const MessagesPage = () => {
     setValue(event.target.value);
   };
 
-
+ 
   //**Get all messages from current User*/
   const getMessages = () => {
     axios.get('/messages/sendMessage')
