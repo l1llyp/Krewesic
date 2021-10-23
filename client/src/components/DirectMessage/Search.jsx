@@ -10,7 +10,7 @@ const Search = () => {
   const changeInput = (name) => {
     setValue(name);
   };
-  
+   
   const searchUser = (user) => {
     return axios.get(`/directMessage/users/${user}`)
       .then(user => {
