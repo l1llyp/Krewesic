@@ -188,12 +188,18 @@ events.post('/createEvent', async(req, res) => {
     const {performers, when, type, medium, address, city, venue, state} = req.body;
     //console.log(req.body);
     const {id} = req.user;
+    const coordinates = {};
     //const id = 1 //hardcoded for testing --> change this back
-    const {data} = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address},
-    +${city},+${state}&key=${process.env.GEOCODE_KEY}`);
-    const {lat, lng} = data.results[0].geometry.location;
+    if (medium === 'venue') {
+      const {data} = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address},
+      +${city},+${state}&key=${process.env.GEOCODE_KEY}`);
+      const {lat, lng} = data.results[0].geometry.location;
+      coordinates.lat = lat, 
+      coordinates.lng = lng;
+    }
+    
     await Event.create({
-      performers, when, type, medium, lat, lng, address, city, state, venue, artistId: id
+      performers, when, type, medium, lat: coordinates.lat, lng: coordinates.lng, address, city, state, venue, artistId: id
 
     });
    

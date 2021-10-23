@@ -19,9 +19,9 @@ const {form} = require('./routes/form.js');
 const events = require('./routes/events/events.js');
 const artist = require('./routes/artist.js');
 const mailingList = require('./routes/mailingList.js');
+const kEvents = require('./routes/events/krewesicEvents.js');
 const cookieParser = require('cookie-parser');
-//const graphql = require('graphql');
-//const { graphqlHTTP } = require('express-graphql');
+
 
 
 
@@ -63,6 +63,7 @@ app.use('/directMessage', Users);
 app.use('/events', events);
 app.use('/artist', artist);
 app.use('mailingList', mailingList);
+app.use('/krewesicevents', kEvents);
 
 
 
