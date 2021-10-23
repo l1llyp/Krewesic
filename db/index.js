@@ -4,7 +4,7 @@ const pg = require('pg');
 const {dbUser} = require('./models/users.js');
 const { dbMessages } = require('./models/messages.js');
 const {dbSGEvent} = require('./models/SGEvent.js');
-const { dbSGEventComment} = require('./models/SGEventComment.js')
+const { dbSGEventComment} = require('./models/SGEventComment.js');
 const db = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, { 
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
@@ -26,6 +26,8 @@ const SGEventComment = dbSGEventComment(db);
 
 User.hasMany(Messages);
 Messages.belongsTo(User);
+SGEventComment.belongsTo(SGEvent, {foreignKey: 'SGEventId'});
+SGEventComment.belongsTo(User, {foreignKey: 'userId'});
 
 //sync the db
 db.sync()

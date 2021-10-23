@@ -4,7 +4,7 @@ const {Sequelize} = require('sequelize');
 const dbSGEvent = (sequelize) => {
   return sequelize.define('SGEvent', {
     id: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.STRING,
       primaryKey: true,
      
     },
@@ -23,7 +23,6 @@ const dbSGEvent = (sequelize) => {
     },
     lat: {
       type: Sequelize.FLOAT,
-      
     },
     lng: {
       type: Sequelize.FLOAT

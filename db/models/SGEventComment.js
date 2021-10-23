@@ -1,5 +1,5 @@
 const {Sequelize} = require('sequelize');
-const { User, SGEvent } = require('..');
+
 
 //the event will end up in the db when a user interacts wth it-- comments on it or likes it
 const dbSGEventComment = (sequelize) => {
@@ -20,18 +20,12 @@ const dbSGEventComment = (sequelize) => {
     },
     userId: {
       type: Sequelize.INTEGER,
-      references: {
-        model: User,
-        key: 'id'
-      }
+     
       //foreign key to user id
     },
-    sgEventId: {
-      type: Sequelize.INTEGER,
-      references: {
-        model: SGEvent,
-        key: 'id'
-      }
+    SGEventId: {
+      type: Sequelize.STRING,
+      
       //foreing key points to the id in sg event
     }
     
