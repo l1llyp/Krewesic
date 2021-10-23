@@ -3,6 +3,7 @@ import React, {useState, useEffect, useContext} from 'react';
 import { TextField, MenuItem, Button } from '@material-ui/core';
 import { FormControl, InputLabel, Select } from '@mui/material';
 import axios from 'axios';
+import key from './keys.js';
 
 const CreateEvent = () => {
 
@@ -12,10 +13,13 @@ const CreateEvent = () => {
   const [medium, setMedium] = useState('virtual'); //this will be the type of show: i.e. live or virtual.  
 
   //these are only to be displayed if live
-  const [lat, setLat] = useState(0);
-  const [lng, setLng] = useState(0);
+
+  const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
+  const [state, setState] = useState('');
   const [venue, setVenue] = useState('');
+
+  
 
   //link or code only if virtual, this is de-prioritized option
   //const [link, setLink] = useState('')
@@ -23,8 +27,14 @@ const CreateEvent = () => {
 
   //-- have instead of entering lat , long, they enter an address and use google geocoding api to get lat long in the db
 
+
+
+ 
   const createEvent = async() => {
-    axios.post('/events/createEvent', {performers, when, type, medium, lat, lng, city, venue});
+    //await getGeocode() 
+    //right now the getGeocode fn runs on mouse over then this one on click.  need a better way to handle the asynchronous aspect of setting the state .  
+ 
+    axios.post('/events/createEvent', {performers, when, type, medium, address, city, state, venue});
   };
 
 
@@ -38,9 +48,7 @@ const CreateEvent = () => {
         value={when}
         placeholder='YYYY-MM-DD HH:MM:SS'
       />
-      <br/><br/>
-   
-      
+      <br/><br/>  
       <TextField
         onChange={e => setType(e.target.value)}
      
@@ -69,22 +77,14 @@ const CreateEvent = () => {
       <br/><br/>
       {medium === 'venue' &&
       <div>
+         
         <TextField
-          onChange={e => setLat(e.target.value)}
-   
-          label="lat"
+          onChange={e => setAddress(e.target.value)}
+     
+          label="address"
           variant="outlined"
-          value={lat}
-          placeholder='lat'
-        />
-        <br />
-        <TextField
-          onChange={e => setLng(e.target.value)}
- 
-          label="lng"
-          variant="outlined"
-          value={lng}
-          placeholder='lng'
+          value={address}
+          placeholder='100 rock-n-roll ave'
         />
         <TextField
           onChange={e => setCity(e.target.value)}
@@ -94,6 +94,18 @@ const CreateEvent = () => {
           value={city}
           placeholder='city'
         />
+       
+        <TextField
+          onChange={e => setState(e.target.value)}
+     
+          label="state"
+          variant="outlined"
+          value={state}
+          placeholder='LA'
+        />
+        <p>or</p>
+    
+      
         <br />
         <TextField
           onChange={e => setVenue(e.target.value)}
@@ -112,3 +124,5 @@ const CreateEvent = () => {
 };
 
 export default CreateEvent;
+
+
