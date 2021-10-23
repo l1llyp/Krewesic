@@ -125,7 +125,10 @@ events.get('/interestedUsersSG/:sgId', async (req, res) => {
   try {
     const {sgId} = req.params;
     const interestedUsers = await SGEventComment.findAll({
-      where: {SGEventId: sgId},
+      where: {
+        SGEventId: sgId,
+        type: 'interest'
+      },
       include: [{
         model: User,
         attributes: ['id', 'name']
@@ -164,7 +167,7 @@ events.get('/SGcomments/:eventId', async (req, res) => {
   try {
     const {eventId} = req.params;
     //get the comments with that event id, include the user who commented
-   const comments = await SGEventComment.findAll({
+    const comments = await SGEventComment.findAll({
       where: {
         SGEventId: eventId,
         type: 'text'
@@ -173,10 +176,10 @@ events.get('/SGcomments/:eventId', async (req, res) => {
         model: User,
         attributes: ['id', 'name']
       }]
-    })
+    });
     console.log(comments);
 
-    res.status(201).send(comments)
+    res.status(201).send(comments);
 
   } catch (err) {
     console.log(err);
