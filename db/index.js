@@ -3,6 +3,7 @@ const dbConfig = require('./db.config.js');
 const pg = require('pg');
 const {dbUser} = require('./models/users.js');
 const { dbMessages } = require('./models/messages.js');
+const { dbRooms} = require('./models/chatRooms.js');
 const db = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
@@ -18,9 +19,11 @@ const db = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 
 User = dbUser(db);
 Messages = dbMessages(db);
+Rooms = dbRooms(db);
 
 User.hasMany(Messages);
 Messages.belongsTo(User);
+
 
 //sync the db
 db.sync()
@@ -31,4 +34,7 @@ db.sync()
 
 module.exports = {
   db,
-  User, Messages};
+  User, 
+  Messages,
+  Rooms,
+};
