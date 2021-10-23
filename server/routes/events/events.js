@@ -2,14 +2,15 @@ const {Router} = require('express');
 const events = Router();
 require('dotenv').config();
 const axios = require('axios');
+
 //const sampleData = require('./sampleData/sample.json');
 //const citySample = require('./sampleData/citySample.json');
 // const nolaweenSample = require('./sampleData/datesamplenolahalloweenwknd.json');
-const {SGEvent, SGEventComment, User, Event} = require('../../db');
+const {SGEvent, SGEventComment, User, Event} = require('../../../db/index.js');
 
 const fs = require('fs');
-const { dbSGEvent } = require('../../db/models/SGEvent');
-const { dbSGEventComment } = require('../../db/models/SGEventComment');
+const { dbSGEvent } = require('../../../db/models/SGEvent');
+const { dbSGEventComment } = require('../../../db/models/SGEventComment');
 
 
 const baseUri = 'https://api.seatgeek.com/2';
@@ -17,8 +18,6 @@ const baseUri = 'https://api.seatgeek.com/2';
 events.get('/bandSearch/:bandName', async (req, res) => {
   try {
     const {bandName} = req.params;
-  
-    //console.log('clientID!!!' , process.env.SEATGEEK_CLIENT_ID)
 
     const {data} = await axios.get(`${baseUri}/events?client_id=${process.env.SEATGEEK_CLIENT_ID}&client_secret=${process.env.SEATGEEK_SECRET}&performers.slug=${bandName}`);
     //const jdata = JSON.stringify(data);
