@@ -11,7 +11,7 @@ const EventLandingPage = () => {
   const [interestedUsers, setInterestedUsers] = useState([]);
   const [alreadyInterested, setAlreadyInterested] = useState(false);
   const [commentText, setCommentText] = useState('');
-  const [commentWall, setCommentWall] = useState([])
+  const [commentWall, setCommentWall] = useState([]);
 
   const interest = async () => {
     await axios.post('/events/interestedInSG', {eventId: eventId, venue: venue, performers: performers, when: datetime, lat: lat, lng: lng, city: city, type: type});
@@ -37,13 +37,14 @@ const EventLandingPage = () => {
   };
 
   const getComments = async () => {
-    const {data} = await axios.get(`/events/SGcomments/${eventId}`)
-    console.log(data)
-  }
+    const {data} = await axios.get(`/events/SGcomments/${eventId}`);
+    console.log(data);
+    setCommentWall(data);
+  };
 
   const disinterest = async () => {
-    console.log('i need to fill this in')
-  }
+    console.log('i need to fill this in');
+  };
 
   useEffect(() => {
     getInterestedUsers(eventId);
