@@ -28,7 +28,13 @@ const dbEvent = (sequelize) => {
     lng: {
       type: Sequelize.FLOAT
     },
+    address: {
+      type: Sequelize.STRING
+    },
     city: {
+      type: Sequelize.STRING
+    },
+    state: {
       type: Sequelize.STRING
     },
     venue: {
