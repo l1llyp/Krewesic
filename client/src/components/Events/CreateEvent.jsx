@@ -40,7 +40,6 @@ const CreateEvent = () => {
 
   return (
     <div>
-    
       <TextField
         onChange={e => setWhen(e.target.value)}
      
@@ -49,9 +48,7 @@ const CreateEvent = () => {
         value={when}
         placeholder='YYYY-MM-DD HH:MM:SS'
       />
-      <br/><br/>
-   
-      
+      <br/><br/>  
       <TextField
         onChange={e => setType(e.target.value)}
      
@@ -129,23 +126,3 @@ const CreateEvent = () => {
 export default CreateEvent;
 
 
-
-/**
- *     <TextField
-          onChange={e => setLat(e.target.value)}
-   
-          label="lat"
-          variant="outlined"
-          value={lat}
-          placeholder='lat'
-        />
-        <br />
-        <TextField
-          onChange={e => setLng(e.target.value)}
- 
-          label="lng"
-          variant="outlined"
-          value={lng}
-          placeholder='lng'
-        />
- */
