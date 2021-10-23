@@ -7,9 +7,9 @@ const Artist = (props) => {
 
   return (
     <div>
-     <h1 className='header'>
+      <h1 className='header'>
        Testing
-     </h1>
+      </h1>
     </div>
   );
 };

@@ -15,6 +15,7 @@ const {db} = require('../db');
 const auth = require('./routes/authenticate');
 const {form} = require('./routes/form.js');
 const events = require('./routes/events.js');
+const artist = require('./routes/artistOfTheDay');
 
 //const graphql = require('graphql');
 //const { graphqlHTTP } = require('express-graphql');
@@ -42,6 +43,7 @@ app.use('/auth', auth);
 app.use('/form', form);
 app.use('/messages', Message);
 app.use('/events', events);
+app.use('/artistOfTheDay', artist);
 
 
 
