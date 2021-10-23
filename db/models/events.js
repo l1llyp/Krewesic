@@ -7,16 +7,16 @@ const dbEvent = (sequelize) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    artistId: {
+    sgId: {
       type: Sequelize.INTEGER,
-      //foreign key pointing to artist or sgid
+      //foreign key pointing to seatgeek id
     },
     type: {
       type: Sequelize.STRING,
     }, 
     //etc
+  
     
-
   });
 };
 

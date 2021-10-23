@@ -19,6 +19,8 @@ import Header from './Header.jsx';
 import GlobalContext from './Contexts/GlobalContext.jsx';
 import MessagesPage from './Messages/MessagesPage.jsx';
 import DirectMessages from './DirectMessage/DirectMessages.jsx';
+import EventLandingPage from './Events/EventLandingPage.jsx';
+
 
 
 
@@ -79,6 +81,9 @@ const App = (props) => {
             </Route>
             <Route path='/mapevents' >
               <MapEvents />
+            </Route>
+            <Route path='/eventLandingPage/:eventId/:venue/:city/:performers/:lat/:lng/:type/:datetime' >
+              <EventLandingPage />
             </Route>
             <Route path='/messages' component={MessagesPage}>
             </Route>
