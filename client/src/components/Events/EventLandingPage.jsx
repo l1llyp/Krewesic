@@ -6,7 +6,7 @@ import CommentComponent from './CommentComponent.jsx';
 const EventLandingPage = () => {
   
   const {eventId, venue, city, performers, datetime, lat, lng, type: type } = useParams();
-  console.log( venue, type);
+
   //this should be displaying: performers, datetime, city, venue name, lat lng, users who are interested, comments about this event, link to the ticket sales to satisfy TOS
 
   const [interestedUsers, setInterestedUsers] = useState([]);
@@ -21,7 +21,7 @@ const EventLandingPage = () => {
 
   const getInterestedUsers = async (sgId) => {
     const {data} = await axios.get(`/events/interestedUsersSG/${sgId}`);
-    console.log('interested users data: ', data);
+
    
     setInterestedUsers(data);
     //const userIds = data.map(x => x.User.id)
@@ -44,7 +44,7 @@ const EventLandingPage = () => {
   };
 
   const disinterest = async () => {
-    console.log('i need to fill this in');
+    // console.log('i need to fill this in');
   };
 
   useEffect(() => {

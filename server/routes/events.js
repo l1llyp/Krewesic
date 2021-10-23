@@ -4,7 +4,7 @@ require('dotenv').config();
 const axios = require('axios');
 //const sampleData = require('./sampleData/sample.json');
 //const citySample = require('./sampleData/citySample.json');
-const nolaweenSample = require('./sampleData/datesamplenolahalloweenwknd.json');
+//const nolaweenSample = require('./sampleData/datesamplenolahalloweenwknd.json');
 const {SGEvent, SGEventComment, User} = require('../../db');
 
 const fs = require('fs');
@@ -17,9 +17,7 @@ const baseUri = 'https://api.seatgeek.com/2';
 events.get('/bandSearch/:bandName', async (req, res) => {
   try {
     const {bandName} = req.params;
-    console.log('bandname', bandName);
   
-    console.log('get event');
     //console.log('clientID!!!' , process.env.SEATGEEK_CLIENT_ID)
 
     const {data} = await axios.get(`${baseUri}/events?client_id=${process.env.SEATGEEK_CLIENT_ID}&client_secret=${process.env.SEATGEEK_SECRET}&performers.slug=${bandName}`);
@@ -107,7 +105,7 @@ events.post('/interestedInSG', async (req, res) => {
     //create the interest comment 
     const newInterest = await SGEventComment.create({
       type: 'interest',
-      userId: id, //fix this hardcoded after testing!!!!!!!!!!!!
+      userId: id, 
       SGEventId: eventId
     });
 
