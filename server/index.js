@@ -17,6 +17,7 @@ const {db} = require('../db');
 const auth = require('./routes/authenticate');
 const {form} = require('./routes/form.js');
 const events = require('./routes/events.js');
+const artist = require('./routes/artist.js');
 const cookieParser = require('cookie-parser');
 //const graphql = require('graphql');
 //const { graphqlHTTP } = require('express-graphql');
@@ -59,6 +60,7 @@ app.use('/messages', Message);
 app.use('/roomChat', Room);
 app.use('/directMessage', Users);
 app.use('/events', events);
+app.use('/artist', artist);
 
 
 
