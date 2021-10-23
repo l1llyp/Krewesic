@@ -81,7 +81,4 @@ const ArtistOfDay = () => {
   );
 };
 
- 
-
-
 export default ArtistOfDay;
