@@ -20,6 +20,7 @@ import GlobalContext from './Contexts/GlobalContext.jsx';
 import MessagesPage from './Messages/MessagesPage.jsx';
 import DirectMessages from './DirectMessage/DirectMessages.jsx';
 import EventLandingPage from './Events/EventLandingPage.jsx';
+import CreateEvent from './Events/CreateEvent.jsx';
 
 
 
@@ -56,6 +57,7 @@ const App = (props) => {
             <Link to='/mapevents'>map events</Link>
             <Link to='/messages'>Messages</Link>
             <Link to='/profile'>Profile</Link>
+            <Link to='/createevent'>create event</Link>
           </nav>
 
           <Switch>
@@ -84,6 +86,9 @@ const App = (props) => {
             </Route>
             <Route path='/eventLandingPage/:eventId/:venue/:city/:performers/:lat/:lng/:type/:datetime' >
               <EventLandingPage />
+            </Route>
+            <Route path='/createevent' >
+              <CreateEvent />
             </Route>
             <Route path='/messages' component={MessagesPage}>
             </Route>
