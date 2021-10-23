@@ -15,8 +15,8 @@ const dbEvent = (sequelize) => {
       type: Sequelize.STRING,
     }, 
     //etc
+  
     
-
   });
 };
 

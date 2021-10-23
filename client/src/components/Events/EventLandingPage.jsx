@@ -4,12 +4,12 @@ import axios from 'axios';
 
 const EventLandingPage = () => {
   
-  const {eventId, venue, city, performers, datetime } = useParams();
-  console.log(eventId, venue, city, performers, datetime);
+  const {eventId, venue, city, performers, datetime, lat, lng, type: type } = useParams();
+  console.log( venue,  type);
   //this should be displaying: performers, datetime, city, venue name, lat lng, users who are interested, comments about this event, link to the ticket sales to satisfy TOS
 
   const interest = async () => {
-    await axios.post('/events/interestedInSG', {eventId: eventId});
+    await axios.post('/events/interestedInSG', {eventId: eventId, venue: venue, performers: performers, when: datetime, lat: lat, lng: lng, city: city,  type: type});
   };
 
 

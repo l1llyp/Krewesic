@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom';
 
 
 const InfoCard = ({event}) => {
-  const {datetime_local, performers, type, venue, id, sgId } = event;
+  const {datetime_local, performers, type, venue, id, sgId, lat, lng } = event;
   
   const performersString = performers.map(performer => performer.name ).join(',');
   const history = useHistory();
@@ -15,7 +15,7 @@ const InfoCard = ({event}) => {
 
   return (
     <div>
-      <div onClick={() => { history.push(`/eventLandingPage/${id}/${venue.name}/${venue.city}/${performersString}/${datetime_local}`); }}>
+      <div onClick={() => { history.push(`/eventLandingPage/${id}/${venue.name}/${venue.city}/${performersString}/${lat}/${lng}/${type}/${datetime_local}`); }}>
         {performers.map((performer, i) => <h3 key={i}>{performer.name}</h3>)}
       </div>
       <h4>{venue.name}</h4>

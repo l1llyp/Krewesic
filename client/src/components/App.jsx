@@ -81,7 +81,7 @@ const App = (props) => {
             <Route path='/mapevents' >
               <MapEvents />
             </Route>
-            <Route path='/eventLandingPage/:eventId/:venue/:city/:performers/:datetime' >
+            <Route path='/eventLandingPage/:eventId/:venue/:city/:performers/:lat/:lng/:type/:datetime' >
               <EventLandingPage />
             </Route>
             <Route path='/messages' component={MessagesPage}>

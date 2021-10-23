@@ -5,10 +5,11 @@ const axios = require('axios');
 //const sampleData = require('./sampleData/sample.json');
 //const citySample = require('./sampleData/citySample.json');
 const nolaweenSample = require('./sampleData/datesamplenolahalloweenwknd.json');
-const {SGEvent} = require('../../db');
+const {SGEvent, SGEventComment} = require('../../db');
 
 const fs = require('fs');
 const { dbSGEvent } = require('../../db/models/SGEvent');
+const { dbSGEventComment } = require('../../db/models/SGEventComment');
 
 
 const baseUri = 'https://api.seatgeek.com/2';
@@ -82,16 +83,31 @@ events.get('/dateSearch/:date1/:date2/:city', async (req, res) => {
   }
 });
 
-events.get('/interestedInSG', async (req, res) => {
+events.post('/interestedInSG', async (req, res) => {
+
   try {
     //do a post
-    const {eventId} = req.body;
+    const {eventId, when, performers, type, venue, city, lat, lng} = req.body;
+    console.log(req.body)
     const event = await SGEvent.findByPk(eventId);
     if (!event) { //if the event does not exist, create the event
-      await SGEvent.create({id: eventId});
-
+      await SGEvent.create({
+        id: eventId,
+        type: type, 
+        performers: performers,
+        venue: venue,
+        city: city,
+        lat: lat,
+        lng: lng,
+        when: when
+      });
     }
     //create the interest comment 
+    const newInterest = await SGEventComment.create({
+      type: 'interest',
+      userId: 1, //fix this hardcoded after testing!!!!!!!!!!!!
+      sgEventId: eventId
+    })
 
 
     res.sendStatus(200);
