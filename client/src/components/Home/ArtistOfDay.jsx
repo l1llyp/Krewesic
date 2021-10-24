@@ -58,15 +58,15 @@ const ArtistOfDay = () => {
       <Box display='flex' marginX='10vh' paddingX='10vh'>
         <div>
           <h1>
-      {artistOfTheDay.strArtist} 
+            {artistOfTheDay.strArtist} 
           </h1>
           <div marginY="4vh">
-      {artistOfTheDay.strBiographyEN}
+            {artistOfTheDay.strBiographyEN}
           </div>
-      </div>
+        </div>
         <div>
-      <img src={artistOfTheDay.strArtistThumb} width="200" height="200" alt='' />
-      </div>
+          <img src={artistOfTheDay.strArtistThumb} width="200" height="200" alt='' />
+        </div>
       </Box>
       <ul>
         <h2>Friends</h2>
