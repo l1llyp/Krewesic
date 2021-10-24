@@ -22,6 +22,8 @@ import DirectMessages from './DirectMessage/DirectMessages.jsx';
 import EventLandingPage from './Events/EventLandingPage.jsx';
 import CreateEvent from './Events/CreateEvent.jsx';
 import MailingList from './Home/mailing list/MailingList.jsx';
+import Events from './Events/Events.jsx';
+import KreweEventLandingPage from './Events/KrewesicArtists/KreweEventLandingPage.jsx';
 
 
 
@@ -61,6 +63,7 @@ const App = (props) => {
             <Link to='/profile'>Profile</Link>
             <Link to='/createevent'>create event</Link>
             <Link to ='/mailingList'>Join Our Mailing List</Link>
+            <Link to='/events'>events link</Link>
           </nav>
 
           <Switch>
@@ -83,6 +86,12 @@ const App = (props) => {
             </Route>
             <Route path='/bands' >
               <BandsHome />
+            </Route>
+            <Route path='/events' >
+              <Events />
+            </Route>
+            <Route path='/kreweEventLandingPage/:eventId' >
+              <KreweEventLandingPage />
             </Route>
             <Route path='/mapevents' >
               <MapEvents />
