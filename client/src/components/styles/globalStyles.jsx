@@ -8,6 +8,6 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     
   }
-`
+`;
 
 export default GlobalStyle;

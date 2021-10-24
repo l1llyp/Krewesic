@@ -7,9 +7,9 @@ const KreweEventLandingPage = () => {
 
   //do get request for the event info
   const getEventDeetz = () => {
-    const {data} = axios.get(`/getEvent/${eventId}`)
-    console.log(data)
-  }
+    const {data} = axios.get(`/getEvent/${eventId}`);
+    console.log(data);
+  };
 
 
   return (
