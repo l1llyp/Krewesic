@@ -23,6 +23,7 @@ import EventLandingPage from './Events/EventLandingPage.jsx';
 import CreateEvent from './Events/CreateEvent.jsx';
 import MailingList from './Home/mailing list/MailingList.jsx';
 import Events from './Events/Events.jsx';
+import KreweEventLandingPage from './Events/KrewesicArtists/KreweEventLandingPage.jsx';
 
 
 
@@ -88,6 +89,9 @@ const App = (props) => {
             </Route>
             <Route path='/events' >
               <Events />
+            </Route>
+            <Route path='/kreweEventLandingPage/:eventId' >
+              <KreweEventLandingPage />
             </Route>
             <Route path='/mapevents' >
               <MapEvents />
