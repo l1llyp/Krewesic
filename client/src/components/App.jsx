@@ -21,7 +21,6 @@ import MessagesPage from './Messages/MessagesPage.jsx';
 import DirectMessages from './DirectMessage/DirectMessages.jsx';
 import EventLandingPage from './Events/EventLandingPage.jsx';
 import CreateEvent from './Events/CreateEvent.jsx';
-import MailingList from './Home/mailing list/MailingList.jsx';
 
 
 
@@ -60,7 +59,6 @@ const App = (props) => {
             <Link to='/messages'>Messages</Link>
             <Link to='/profile'>Profile</Link>
             <Link to='/createevent'>create event</Link>
-            <Link to ='/mailingList'>Join Our Mailing List</Link>
           </nav>
 
           <Switch>
@@ -96,9 +94,6 @@ const App = (props) => {
             <Route path='/messages' component={MessagesPage}>
             </Route>
             <Route exact path='/DirectMessage' component={DirectMessages} />
-            <Route path='/mailingList'>
-              <MailingList/>
-            </Route>
             <Route>
               <div>404 page not available</div>
             </Route>
